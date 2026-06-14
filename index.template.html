@@ -149,6 +149,18 @@
             transform: translateY(0);
         }
     </style>
+
+    <!-- Netlify Identity widget: required so invite/recovery links (which land here on the homepage) can open the set-password form -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                // nothing needed on normal load
+            });
+            // If the URL contains an invite or recovery token, the widget
+            // automatically opens its modal to let the user set a password.
+        }
+    </script>
 </head>
 <body class="overflow-x-hidden selection:bg-cream-300 selection:text-espresso-900">
 
