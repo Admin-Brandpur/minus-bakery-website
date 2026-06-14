@@ -1,0 +1,135 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# This makes the CMS edit content.json directly, and Netlify Identity
+# handles who is allowed to log in to /admin
+local_backend: false
+
+media_folder: "images" # Uploaded images are stored here
+public_folder: "images" # and referenced from here on the live site
+
+collections:
+  - name: "site_content"
+    label: "Website Content"
+    files:
+      - name: "general"
+        label: "All Website Content"
+        file: "content.json"
+        description: "Edit every section of Minu's Bakery website here. Changes go live a minute or two after you click 'Publish' / 'Save'."
+        fields:
+
+          # --------------------- SEO ---------------------
+          - label: "SEO & Search Settings"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Page Title (shows in browser tab & Google)", name: "title", widget: "string" }
+              - { label: "Meta Description (shows under title in Google search results)", name: "description", widget: "text" }
+              - { label: "Keywords (comma separated)", name: "keywords", widget: "string" }
+              - { label: "Social Share Title (Facebook/WhatsApp preview)", name: "og_title", widget: "string" }
+              - { label: "Social Share Description", name: "og_description", widget: "text" }
+              - { label: "Twitter/X Share Title", name: "twitter_title", widget: "string" }
+              - { label: "Twitter/X Share Description", name: "twitter_description", widget: "text" }
+              - { label: "Website URL (do not change unless domain changes)", name: "site_url", widget: "string" }
+
+          # --------------------- HERO ---------------------
+          - label: "Hero Section (Top of Homepage)"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Small Label Above Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading - Line 1", name: "heading_line1", widget: "string" }
+              - { label: "Heading - Highlighted Word", name: "heading_highlight", widget: "string" }
+              - { label: "Heading - Line 2", name: "heading_line2", widget: "string" }
+              - { label: "Description Paragraph", name: "description", widget: "text" }
+              - { label: "Primary Button Text", name: "primary_button_text", widget: "string" }
+              - { label: "Secondary Button Text", name: "secondary_button_text", widget: "string" }
+              - { label: "Stat 1 Value", name: "stat1_value", widget: "string" }
+              - { label: "Stat 1 Label", name: "stat1_label", widget: "string" }
+              - { label: "Stat 2 Value", name: "stat2_value", widget: "string" }
+              - { label: "Stat 2 Label", name: "stat2_label", widget: "string" }
+              - { label: "Stat 3 Value", name: "stat3_value", widget: "string" }
+              - { label: "Stat 3 Label", name: "stat3_label", widget: "string" }
+
+          # --------------------- ABOUT ---------------------
+          - label: "Our Story / About Section"
+            name: "about"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Small Label Above Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading - Part 1", name: "heading_part1", widget: "string" }
+              - { label: "Heading - Highlighted Word", name: "heading_highlight", widget: "string" }
+              - { label: "Heading - Part 2", name: "heading_part2", widget: "string" }
+              - { label: "Paragraph 1", name: "paragraph1", widget: "text" }
+              - { label: "Paragraph 2", name: "paragraph2", widget: "text" }
+              - { label: "Photo", name: "image_url", widget: "image" }
+              - { label: "Photo Caption (quote overlay)", name: "image_caption", widget: "string" }
+              - { label: "Established Label", name: "established_label", widget: "string" }
+              - { label: "Feature 1 Title", name: "feature1_title", widget: "string" }
+              - { label: "Feature 1 Description", name: "feature1_desc", widget: "string" }
+              - { label: "Feature 2 Title", name: "feature2_title", widget: "string" }
+              - { label: "Feature 2 Description", name: "feature2_desc", widget: "string" }
+              - { label: "Instagram Handle (e.g. @minus_bakery)", name: "instagram_handle", widget: "string" }
+
+          # --------------------- MENU ---------------------
+          - label: "Menu Items"
+            name: "menu"
+            widget: "list"
+            label_singular: "Menu Item"
+            summary: "{{fields.name}} - {{fields.price}}"
+            fields:
+              - { label: "Item Name", name: "name", widget: "string" }
+              - { label: "Price (e.g. ₹150)", name: "price", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Signature Pastry", value: "signature" }
+                  - { label: "Sourdough", value: "sourdough" }
+                  - { label: "Whole Cakes", value: "cakes" }
+              - { label: "Small Tag (e.g. 'Flaky & Golden')", name: "tag", widget: "string", required: false }
+              - { label: "Badge (e.g. 'Daily Special', leave empty for none)", name: "badge", widget: "string", required: false }
+              - { label: "Photo", name: "image_url", widget: "image" }
+
+          # --------------------- TESTIMONIALS ---------------------
+          - label: "Customer Testimonials"
+            name: "testimonials"
+            widget: "list"
+            label_singular: "Testimonial"
+            summary: "{{fields.author}}"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Author Name & Title", name: "author", widget: "string" }
+
+          # --------------------- CONTACT ---------------------
+          - label: "Contact Section"
+            name: "contact"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Small Label Above Heading", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Address", name: "address", widget: "string" }
+              - { label: "Opening Hours - Line 1", name: "hours_line1", widget: "string" }
+              - { label: "Opening Hours - Line 2", name: "hours_line2", widget: "string" }
+              - { label: "Email Address", name: "email", widget: "string" }
+              - { label: "Phone Number (displayed)", name: "phone_display", widget: "string" }
+              - { label: "WhatsApp Number (digits only, with country code, e.g. 919157583057)", name: "whatsapp_number", widget: "string" }
+              - { label: "WhatsApp Pre-filled Message", name: "whatsapp_message", widget: "string" }
+
+          # --------------------- FOOTER ---------------------
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Tagline", name: "tagline", widget: "text" }
+              - { label: "Promise Quote", name: "promise_quote", widget: "text" }
+              - { label: "Promise Author", name: "promise_author", widget: "string" }
+              - { label: "Copyright Text", name: "copyright", widget: "string" }
