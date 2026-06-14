@@ -1,0 +1,131 @@
+{
+  "seo": {
+    "title": "Minu's Bakery | Artisanal Bakery & Patisserie in Paldi, Ahmedabad",
+    "description": "Minu's Bakery in Paldi, Ahmedabad offers fresh artisanal croissants, sourdough breads, and custom celebration cakes baked daily with organic ingredients. Order online or visit us today.",
+    "keywords": "bakery Ahmedabad, Paldi bakery, custom cakes Ahmedabad, sourdough bread, croissants, Minu's Bakery",
+    "og_title": "Minu's Bakery | Artisanal Bakery & Patisserie in Paldi, Ahmedabad",
+    "og_description": "Fresh artisanal croissants, sourdough breads, and custom celebration cakes baked daily with organic ingredients. Order online or visit us today.",
+    "twitter_title": "Minu's Bakery | Artisanal Bakery & Patisserie",
+    "twitter_description": "Fresh artisanal croissants, sourdough breads, and custom celebration cakes baked daily in Paldi, Ahmedabad.",
+    "site_url": "https://eloquent-muffin-1f8662.netlify.app/"
+  },
+  "hero": {
+    "eyebrow": "Artisanal Bakery & Patisserie",
+    "heading_line1": "Where simple",
+    "heading_highlight": "ingredients",
+    "heading_line2": "become extraordinary.",
+    "description": "Hand-rolled croissants, customized cloud cakes, and organic sourdough made daily with slow fermentation and local dairy. Experience minimal pastry magic.",
+    "primary_button_text": "Explore Our Goods",
+    "secondary_button_text": "Design Custom Cake",
+    "stat1_value": "100%",
+    "stat1_label": "Organic Flour",
+    "stat2_value": "Fresh",
+    "stat2_label": "Baked Hourly",
+    "stat3_value": "Slow",
+    "stat3_label": "Natural Ferment"
+  },
+  "about": {
+    "eyebrow": "The Heart & Soul",
+    "heading_part1": "Crafted by",
+    "heading_highlight": "Minu",
+    "heading_part2": "in her tiny countryside kitchen.",
+    "paragraph1": "It began with a single wooden spoon, a recipe book inherited from her grandmother, and a relentless curiosity for flour hydration. Today, Minu's Bakery is a sanctuary for those who appreciate the patience of wild sourdough yeast and the flawless layers of premium pasture-butter laminated pastry.",
+    "paragraph2": "We never take shortcuts. No synthetic additives, no commercial volume-enhancers. Just local milk, freshly crushed herbs, single-origin cacao, and plenty of time.",
+    "image_url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800",
+    "image_caption": "\"Baking is slow poetry.\"",
+    "established_label": "Established 2021",
+    "feature1_title": "Heirloom Grains",
+    "feature1_desc": "Sourced directly from ecological crop co-ops.",
+    "feature2_title": "Zero-Gravity Crumb",
+    "feature2_desc": "Slow rising process yields exceptionally airy pastry layers.",
+    "instagram_handle": "@minus_bakery"
+  },
+  "menu": [
+    {
+      "name": "Classic Butter Croissant",
+      "price": "₹150",
+      "description": "72-hour laminated French pastry dough featuring organic butter, resulting in unmatched lightness.",
+      "category": "signature",
+      "tag": "Flaky & Golden",
+      "badge": "Daily Special",
+      "image_url": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "name": "Country Sourdough Boule",
+      "price": "₹250",
+      "description": "Stoneground wholewheat flour, naturally fermented for 36 hours. Beautiful golden caramelized blister crust.",
+      "category": "sourdough",
+      "tag": "Robust & Tangy",
+      "badge": "Wild Yeast",
+      "image_url": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "name": "Pain au Chocolat",
+      "price": "₹160",
+      "description": "Two sleek rods of single-origin 70% dark Belgian chocolate enveloped in a fluffy, flaky pastry quilt.",
+      "category": "signature",
+      "tag": "Bittersweet Chocolate",
+      "badge": "",
+      "image_url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "name": "Pistachio Rose Cake",
+      "price": "₹1400",
+      "description": "Rich roasted Sicilian pistachio paste sponge layered with organic rosewater cream and culinary-grade rose petals.",
+      "category": "cakes",
+      "tag": "Aromatic & Nutty",
+      "badge": "",
+      "image_url": "https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "name": "Kalamata Olive Sourdough",
+      "price": "₹280",
+      "description": "Moist open-crumb sourdough embedded with crushed Kalamata olives, toasted rosemary sprigs, and flaky sea salt.",
+      "category": "sourdough",
+      "tag": "Savory Herb",
+      "badge": "",
+      "image_url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "name": "Belgian Fudge Cloud Cake",
+      "price": "₹1500",
+      "description": "Decadent chocolate gateau with airy mascarpone frosting cream layers, dusted with raw Dutch cocoa powder.",
+      "category": "cakes",
+      "tag": "Rich & Indulgent",
+      "badge": "",
+      "image_url": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=800"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "The texture of Minu's croissants takes me back to Paris. Absolutely perfect layers, incredible golden crust, and they stay incredibly fluffy. My Saturday morning ritual!",
+      "author": "Sophia Laurent, Pastry Lover"
+    },
+    {
+      "quote": "Designed our wedding cake using her interactive tool and consulted the team. The pistachio rose water cake was incredibly damp, complex, and looked minimal & exquisite.",
+      "author": "Julian Vance, Architect"
+    },
+    {
+      "quote": "Her Wild Yeast Sourdough actually changed my digestion and morning toast routine. Unmatched tanginess, beautiful airy crumb hole-pattern, and crust is incredibly rustic.",
+      "author": "Dr. Eleanor Rose, Nutritionist"
+    }
+  ],
+  "contact": {
+    "eyebrow": "Come Say Hello",
+    "heading": "Visit Our Kitchen or Order Custom",
+    "description": "Stop by to smell the hot country ovens, pick up fresh morning bread, or request a catered consultation for corporate pastry packs or events.",
+    "address": "Paldi, Ahmedabad, Gujarat 380009",
+    "hours_line1": "Tuesday – Saturday: 07:00 AM – 02:00 PM (Or sold out)",
+    "hours_line2": "Sunday – Monday: Rest and recipe testing",
+    "email": "uumangasaur.gaming10@gmail.com",
+    "phone_display": "+91 91575 83057",
+    "whatsapp_number": "919157583057",
+    "whatsapp_message": "Hi Minu's Bakery, I have an enquiry!"
+  },
+  "footer": {
+    "tagline": "A beautiful minimal bakery focusing on traditional baking methods, slow fermentation, and customized premium design cakes.",
+    "promise_quote": "Every flour grain, every gram of local butter, every drop of milk, and every single second of cold proof is respected. This is my commitment to your table.",
+    "promise_author": "— Chef Minu",
+    "copyright": "© 2026 Minu's Bakery Co. All Rights Reserved. Artisanal Elegance."
+  }
+}

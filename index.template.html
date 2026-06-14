@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>__SEO_TITLE__</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="__SEO_DESCRIPTION__">
+    <meta name="keywords" content="__SEO_KEYWORDS__">
+    <meta name="author" content="Minu's Bakery">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="__SEO_SITE_URL__">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="__SEO_OG_TITLE__">
+    <meta property="og:description" content="__SEO_OG_DESCRIPTION__">
+    <meta property="og:url" content="__SEO_SITE_URL__">
+    <meta property="og:image" content="__SEO_SITE_URL__og-image.jpg">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="__SEO_TWITTER_TITLE__">
+    <meta name="twitter:description" content="__SEO_TWITTER_DESCRIPTION__">
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://identity.netlify.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; frame-ancestors 'none';">
+
+    <!-- LocalBusiness Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Bakery",
+        "name": "Minu's Bakery",
+        "image": "__SEO_SITE_URL__og-image.jpg",
+        "@id": "__SEO_SITE_URL__",
+        "url": "__SEO_SITE_URL__",
+        "telephone": "+91-9157583057",
+        "email": "uumangasaur.gaming10@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Paldi",
+            "addressLocality": "Ahmedabad",
+            "addressRegion": "Gujarat",
+            "postalCode": "380009",
+            "addressCountry": "IN"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "07:00",
+                "closes": "14:00"
+            }
+        ],
+        "servesCuisine": "Bakery, Patisserie",
+        "priceRange": "₹₹"
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FDFBF7',
+                            100: '#FAF6F0',
+                            200: '#F4EFE6',
+                            300: '#E8DEC9',
+                        },
+                        espresso: {
+                            700: '#4A3E3D',
+                            800: '#3D312E',
+                            900: '#2A211F',
+                        },
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C59B27',
+                            600: '#AA821C',
+                        },
+                        terracotta: '#D98A6C'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FDFBF7;
+            color: #2A211F;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E8DEC9;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C59B27;
+        }
+        /* Floating animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes gentle-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: gentle-spin 25s linear infinite;
+        }
+        /* Reveal class on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-cream-300 selection:text-espresso-900">
+
+    <!-- Sticky Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-cream-50/90 backdrop-blur-md border-b border-cream-200/50 py-4 px-6 md:px-12 flex justify-between items-center">
+        <a href="#" class="flex items-center space-x-2 group">
+            <span class="text-2xl md:text-3xl font-serif font-semibold tracking-wide text-espresso-900 group-hover:text-gold-500 transition-colors duration-300">Minu's</span>
+            <span class="text-xs bg-gold-400/20 text-gold-600 px-2 py-0.5 rounded-full font-sans tracking-widest uppercase font-semibold">Bakery</span>
+        </a>
+
+        <!-- Desktop Menu Links -->
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide uppercase text-espresso-800">
+            <a href="#hero" class="hover:text-gold-500 transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full py-1">Home</a>
+            <a href="#about" class="hover:text-gold-500 transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full py-1">Our Story</a>
+            <a href="#menu" class="hover:text-gold-500 transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full py-1">The Menu</a>
+            <a href="#cake-visualizer" class="hover:text-gold-500 transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full py-1">Custom Cake</a>
+            <a href="#quiz" class="hover:text-gold-500 transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full py-1">Vibe Matcher</a>
+            <a href="#contact" class="hover:text-gold-500 transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full py-1">Contact</a>
+        </div>
+
+        <!-- Call to Action Buttons -->
+        <div class="flex items-center space-x-4">
+            <a href="#contact" class="hidden sm:inline-block border border-espresso-800 text-espresso-800 hover:bg-espresso-900 hover:text-cream-50 px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300">Enquire Now</a>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-espresso-800 hover:text-gold-500 focus:outline-none" aria-label="Toggle Mobile Menu">
+                <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-cream-100 shadow-2xl z-40 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col pt-24 px-6 space-y-6 text-espresso-800 font-medium">
+        <a href="#hero" onclick="toggleMobileMenu()" class="text-lg hover:text-gold-500 py-2 border-b border-cream-200/60">Home</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="text-lg hover:text-gold-500 py-2 border-b border-cream-200/60">Our Story</a>
+        <a href="#menu" onclick="toggleMobileMenu()" class="text-lg hover:text-gold-500 py-2 border-b border-cream-200/60">The Menu</a>
+        <a href="#cake-visualizer" onclick="toggleMobileMenu()" class="text-lg hover:text-gold-500 py-2 border-b border-cream-200/60">Custom Cake</a>
+        <a href="#quiz" onclick="toggleMobileMenu()" class="text-lg hover:text-gold-500 py-2 border-b border-cream-200/60">Vibe Matcher</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="text-lg hover:text-gold-500 py-2">Contact</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="text-center bg-espresso-900 text-cream-50 px-4 py-3 rounded-full text-sm font-semibold uppercase tracking-widest transition-colors duration-200">Enquire Now</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen pt-24 flex items-center justify-center bg-gradient-to-b from-cream-50 to-cream-100 overflow-hidden px-6 md:px-12">
+        <!-- Floating Ambient Shapes / SVGs -->
+        <div class="absolute top-1/4 left-10 w-32 h-32 bg-gold-400/5 rounded-full blur-2xl animate-float" style="animation-delay: 0s;"></div>
+        <div class="absolute bottom-1/4 right-10 w-44 h-44 bg-terracotta/5 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+        
+        <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Editorial Text -->
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-6 text-center lg:text-left">
+                <span id="hero-eyebrow" class="text-xs uppercase tracking-[0.25em] text-gold-600 font-semibold inline-block">Artisanal Bakery & Patisserie</span>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-serif text-espresso-900 leading-[1.1] font-normal">
+                    <span id="hero-heading-line1">Where simple</span> <br>
+                    <span id="hero-heading-highlight" class="italic font-light text-gold-500">ingredients</span> <span id="hero-heading-line2">become extraordinary.</span>
+                </h1>
+                
+                <p id="hero-description" class="text-espresso-800/80 max-w-lg mx-auto lg:mx-0 text-sm md:text-base leading-relaxed font-light">
+                    Hand-rolled croissants, customized cloud cakes, and organic sourdough made daily with slow fermentation and local dairy. Experience minimal pastry magic.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#menu" id="hero-primary-btn" class="w-full sm:w-auto text-center bg-espresso-900 text-cream-50 hover:bg-gold-500 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300 shadow-lg shadow-espresso-900/10">Explore Our Goods</a>
+                    <a href="#cake-visualizer" id="hero-secondary-btn" class="w-full sm:w-auto text-center border border-espresso-800 text-espresso-800 hover:border-gold-500 hover:text-gold-500 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300">Design Custom Cake</a>
+                </div>
+                
+                <!-- Quick Brand Indicators -->
+                <div class="grid grid-cols-3 gap-4 pt-10 border-t border-cream-200/80 max-w-md mx-auto lg:mx-0">
+                    <div>
+                        <span id="hero-stat1-value" class="block text-xl md:text-2xl font-serif font-semibold text-espresso-900">100%</span>
+                        <span id="hero-stat1-label" class="text-[10px] uppercase tracking-wider text-espresso-700/60">Organic Flour</span>
+                    </div>
+                    <div>
+                        <span id="hero-stat2-value" class="block text-xl md:text-2xl font-serif font-semibold text-espresso-900">Fresh</span>
+                        <span id="hero-stat2-label" class="text-[10px] uppercase tracking-wider text-espresso-700/60">Baked Hourly</span>
+                    </div>
+                    <div>
+                        <span id="hero-stat3-value" class="block text-xl md:text-2xl font-serif font-semibold text-espresso-900">Slow</span>
+                        <span id="hero-stat3-label" class="text-[10px] uppercase tracking-wider text-espresso-700/60">Natural Ferment</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Component (Interactive Floating Pastel Pastries / High Quality SVGs) -->
+            <div class="lg:col-span-5 flex justify-center items-center relative py-12">
+                <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center">
+                    <!-- Spinning golden aura ring -->
+                    <div class="absolute inset-0 border-2 border-dashed border-gold-300/30 rounded-full animate-spin-slow"></div>
+                    
+                    <!-- Decorative Soft Background Blob -->
+                    <div class="absolute w-[80%] h-[80%] bg-[#F5EFE3] rounded-full filter blur-xl opacity-60"></div>
+                    
+                    <!-- Main Artistic Pastry SVG Component -->
+                    <div class="relative z-10 animate-float">
+                        <svg class="w-64 h-64 sm:w-80 sm:h-80" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Premium Croissant Vector Illustration -->
+                            <defs>
+                                <linearGradient id="croissantGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#EAA85E"/>
+                                    <stop offset="50%" stop-color="#C67D3A"/>
+                                    <stop offset="100%" stop-color="#884C1C"/>
+                                </linearGradient>
+                                <linearGradient id="shadingGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#000000" stop-opacity="0.2"/>
+                                    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.1"/>
+                                </linearGradient>
+                                <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+                                    <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#553011" flood-opacity="0.15"/>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Shadow -->
+                            <ellipse cx="200" cy="340" rx="110" ry="18" fill="#553011" fill-opacity="0.08" />
+                            
+                            <!-- Croissant Body -->
+                            <g filter="url(#dropShadow)">
+                                <!-- Central Big Plump Crescent Piece -->
+                                <path d="M 120,220 C 130,160, 270,160, 280,220 C 270,245, 130,245, 120,220 Z" fill="url(#croissantGrad)" />
+                                <!-- Flaky segment lines & layered overlaps -->
+                                <path d="M 160,185 C 168,205, 172,230, 168,242" stroke="#663300" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 1.5" opacity="0.4" />
+                                <path d="M 240,185 C 232,205, 228,230, 232,242" stroke="#663300" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 1.5" opacity="0.4" />
+                                
+                                <!-- Core Flake Layer 2 (Inside Middle-Left) -->
+                                <path d="M 140,215 C 145,175, 255,175, 260,215 C 255,235, 145,235, 140,215 Z" fill="#D98E45" />
+                                <path d="M 190,172 C 193,195, 194,225, 190,238" stroke="#5E2F00" stroke-width="2" opacity="0.3" />
+                                
+                                <!-- Inner Puff Core -->
+                                <path d="M 165,210 C 170,185, 230,185, 235,210 C 230,225, 170,225, 165,210 Z" fill="#E8A962" />
+                                
+                                <!-- Right Wing -->
+                                <path d="M 270,218 C 290,218, 330,245, 310,255 C 290,260, 265,240, 270,218 Z" fill="url(#croissantGrad)" />
+                                <!-- Left Wing -->
+                                <path d="M 130,218 C 110,218, 70,245, 90,255 C 110,260, 135,240, 130,218 Z" fill="url(#croissantGrad)" />
+                                
+                                <!-- Golden Butter Glaze Sheen -->
+                                <path d="M 155,190 Q 200,168 245,190" stroke="#FFF" stroke-width="4" stroke-linecap="round" opacity="0.25" />
+                                <path d="M 175,182 Q 200,165 225,182" stroke="#FFF" stroke-width="3" stroke-linecap="round" opacity="0.3" />
+                                
+                                <!-- Little Chocolate Drizzle Lines across croissant -->
+                                <path d="M 115,225 Q 125,200 135,228" stroke="#3D2114" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+                                <path d="M 145,210 Q 165,185 185,215" stroke="#3D2114" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.8"/>
+                                <path d="M 195,200 Q 215,175 235,205" stroke="#3D2114" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.8"/>
+                                <path d="M 250,210 Q 270,195 285,220" stroke="#3D2114" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+                            </g>
+                            
+                            <!-- Flaky Sugar Sprinkles -->
+                            <circle cx="160" cy="200" r="2.5" fill="#FFF" opacity="0.9" />
+                            <circle cx="210" cy="190" r="3" fill="#FFF" opacity="0.9" />
+                            <circle cx="230" cy="205" r="2" fill="#FFF" opacity="0.9" />
+                            <circle cx="180" cy="215" r="2.5" fill="#FFF" opacity="0.9" />
+                        </svg>
+                    </div>
+                    
+                    <!-- Little floating badge absolute -->
+                    <div class="absolute top-2 right-2 bg-cream-50/95 border border-cream-200 shadow-lg py-3 px-4 rounded-2xl flex items-center space-x-2 animate-bounce" style="animation-duration: 4s;">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-espresso-900">Warm & Ready!</span>
+                        <span class="inline-block w-2.5 h-2.5 bg-green-500 rounded-full animate-ping"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom wave curve -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+            <svg class="relative block w-full h-8" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.14,111.31,985.66,92.83Z" fill="#FAF6F0"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About / Story Section -->
+    <section id="about" class="py-24 bg-cream-100 relative overflow-hidden px-6 md:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <!-- Left Editorial Imagery with nice warm styling frames -->
+            <div class="lg:col-span-5 relative flex justify-center reveal">
+                <!-- Golden decorative frame -->
+                <div class="absolute -top-4 -left-4 w-full h-full border border-gold-400/30 rounded-3xl -z-10 translate-x-2 translate-y-2"></div>
+                <!-- Main image placeholder utilizing highly stylized canvas/SVG context, custom minimal style -->
+                <div class="w-full max-w-sm rounded-3xl overflow-hidden shadow-xl bg-cream-200 border-4 border-cream-50 relative group">
+                    <img id="about-image" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800" alt="Minu's Bakery Oven Flour" class="w-full h-[450px] object-cover filter brightness-95 saturate-75 contrast-95 group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FAF6F0/2A211F?text=Minu+At+Work'">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-espresso-900/60 via-transparent to-transparent flex flex-col justify-end p-6 text-cream-50">
+                        <span id="about-established" class="text-xs uppercase tracking-widest text-gold-400 mb-1">Established 2021</span>
+                        <h4 id="about-image-caption" class="text-xl font-serif">"Baking is slow poetry."</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Story Content -->
+            <div class="lg:col-span-7 space-y-8 reveal">
+                <div class="space-y-3">
+                    <span id="about-eyebrow" class="text-xs uppercase tracking-[0.25em] text-gold-600 font-semibold block">The Heart & Soul</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-espresso-900 leading-tight">
+                        <span id="about-heading-part1">Crafted by</span> <span id="about-heading-highlight" class="italic text-gold-500">Minu</span> <span id="about-heading-part2">in her tiny countryside kitchen.</span>
+                    </h2>
+                </div>
+                
+                <p id="about-paragraph1" class="text-espresso-800/80 text-sm md:text-base leading-relaxed font-light">
+                    It began with a single wooden spoon, a recipe book inherited from her grandmother, and a relentless curiosity for flour hydration. Today, Minu's Bakery is a sanctuary for those who appreciate the patience of wild sourdough yeast and the flawless layers of premium pasture-butter laminated pastry.
+                </p>
+
+                <p id="about-paragraph2" class="text-espresso-800/80 text-sm md:text-base leading-relaxed font-light">
+                    We never take shortcuts. No synthetic additives, no commercial volume-enhancers. Just local milk, freshly crushed herbs, single-origin cacao, and plenty of time. 
+                </p>
+
+                <!-- Value Highlights Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="p-2 bg-gold-400/10 text-gold-600 rounded-lg">
+                            <i class="fa-solid fa-wheat-awn text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 id="about-feature1-title" class="font-semibold text-espresso-900 text-sm">Heirloom Grains</h4>
+                            <p id="about-feature1-desc" class="text-xs text-espresso-700/70 font-light mt-0.5">Sourced directly from ecological crop co-ops.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <div class="p-2 bg-gold-400/10 text-gold-600 rounded-lg">
+                            <i class="fa-solid fa-cloud text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 id="about-feature2-title" class="font-semibold text-espresso-900 text-sm">Zero-Gravity Crumb</h4>
+                            <p id="about-feature2-desc" class="text-xs text-espresso-700/70 font-light mt-0.5">Slow rising process yields exceptionally airy pastry layers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <div class="inline-flex items-center space-x-4">
+                        <span class="text-xs uppercase tracking-widest text-espresso-900 font-bold">Follow us on IG</span>
+                        <span class="w-12 h-[1px] bg-espresso-900"></span>
+                        <a href="#" id="about-instagram" class="text-gold-500 hover:text-gold-600 font-serif italic text-sm">@minus_bakery</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Vibe / Scent Matcher Quiz -->
+    <section id="quiz" class="py-24 bg-cream-50 relative px-6 md:px-12 border-t border-b border-cream-200/40">
+        <div class="max-w-4xl mx-auto text-center space-y-4 mb-12">
+            <span class="text-xs uppercase tracking-[0.25em] text-gold-600 font-semibold block">Interactive Guide</span>
+            <h2 class="text-3xl md:text-4xl font-serif text-espresso-900">Find Your Perfect Pastry</h2>
+            <p class="text-espresso-800/70 max-w-md mx-auto text-xs sm:text-sm font-light">Tell us your current mood or morning vibe, and we'll instantly match you to one of Minu's signature oven-baked pastries!</p>
+        </div>
+
+        <!-- Quiz Container Box -->
+        <div class="max-w-xl mx-auto bg-cream-100 rounded-3xl p-6 sm:p-10 shadow-lg border border-cream-200/60 relative overflow-hidden min-h-[400px] flex flex-col justify-between">
+            
+            <!-- Progress Tracker -->
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-xs text-espresso-700/50 uppercase tracking-widest font-semibold" id="quiz-step-label">Question 1 of 3</span>
+                <div class="flex space-x-1" id="quiz-dots">
+                    <span class="w-2 h-2 rounded-full bg-gold-400 transition-all duration-300" id="dot-1"></span>
+                    <span class="w-2 h-2 rounded-full bg-cream-300 transition-all duration-300" id="dot-2"></span>
+                    <span class="w-2 h-2 rounded-full bg-cream-300 transition-all duration-300" id="dot-3"></span>
+                </div>
+            </div>
+
+            <!-- Quiz Dynamic Area -->
+            <div id="quiz-content" class="my-auto transition-opacity duration-300">
+                <!-- Step 1 Content (Default) -->
+                <div id="step-1" class="space-y-6">
+                    <h3 class="text-lg md:text-xl font-serif text-espresso-900 text-center">How does your ideal morning begin?</h3>
+                    <div class="grid grid-cols-1 gap-3">
+                        <button onclick="nextQuizStep(1, 'energetic')" class="w-full text-left p-4 rounded-2xl bg-cream-50 hover:bg-gold-400/10 hover:border-gold-400 border border-transparent transition-all duration-200 text-sm flex items-center justify-between">
+                            <span>A busy run around town, getting things moving</span>
+                            <i class="fa-solid fa-chevron-right text-xs text-gold-500"></i>
+                        </button>
+                        <button onclick="nextQuizStep(1, 'cozy')" class="w-full text-left p-4 rounded-2xl bg-cream-50 hover:bg-gold-400/10 hover:border-gold-400 border border-transparent transition-all duration-200 text-sm flex items-center justify-between">
+                            <span>Cozy bed with a book and soft rain pattering</span>
+                            <i class="fa-solid fa-chevron-right text-xs text-gold-500"></i>
+                        </button>
+                        <button onclick="nextQuizStep(1, 'decadent')" class="w-full text-left p-4 rounded-2xl bg-cream-50 hover:bg-gold-400/10 hover:border-gold-400 border border-transparent transition-all duration-200 text-sm flex items-center justify-between">
+                            <span>Slow lazy brunch with close friends & bubbly</span>
+                            <i class="fa-solid fa-chevron-right text-xs text-gold-500"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back navigation button -->
+            <div class="mt-6 pt-4 border-t border-cream-200/40 flex justify-between items-center text-xs">
+                <button id="quiz-back" onclick="prevQuizStep()" class="text-espresso-700/50 hover:text-espresso-900 transition-colors flex items-center space-x-1 opacity-0 pointer-events-none">
+                    <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
+                </button>
+                <button onclick="resetQuiz()" class="text-gold-500 hover:text-gold-600 transition-colors">Start Over</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Custom Cake Visualizer (Interactive SVG Customizer) -->
+    <section id="cake-visualizer" class="py-24 bg-cream-100 relative px-6 md:px-12 overflow-hidden">
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] text-gold-600 font-semibold block">Artisanal Customization</span>
+                <h2 class="text-3xl md:text-5xl font-serif text-espresso-900">Custom Cake Builder</h2>
+                <p class="text-espresso-800/70 max-w-xl mx-auto text-sm font-light">
+                    Virtually compile your celebration cake layer-by-layer! Choose matching sponges, elegant icing glazes, and delicious premium toppings, then save your build.
+                </p>
+            </div>
+
+            <!-- Visualizer Layout Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Live SVG Cake Drawing Frame -->
+                <div class="lg:col-span-6 flex justify-center items-center">
+                    <div class="relative w-full max-w-md bg-cream-50/70 backdrop-blur-sm rounded-3xl p-8 shadow-inner border border-cream-200/50 flex flex-col items-center">
+                        <span class="text-[10px] tracking-widest uppercase text-gold-600 font-bold mb-4">Interactive Canvas Preview</span>
+                        
+                        <!-- Cake SVG Box -->
+                        <div class="w-64 h-72 sm:w-72 sm:h-80 flex items-center justify-center">
+                            <svg class="w-full h-full" viewBox="0 0 300 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <filter id="cakeShadow" x="-10%" y="-10%" width="120%" height="120%">
+                                        <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#3A2414" flood-opacity="0.1"/>
+                                    </filter>
+                                </defs>
+                                <!-- Ground Shadow -->
+                                <ellipse cx="150" cy="315" rx="90" ry="12" fill="#3D2114" fill-opacity="0.08" />
+                                
+                                <!-- Elegant Ceramic Platter Pedestal -->
+                                <path d="M 100,315 C 100,325 200,325 200,315" stroke="#E5DEC9" stroke-width="6" stroke-linecap="round" fill="none" />
+                                <ellipse cx="150" cy="305" rx="95" ry="14" fill="#F4EFE6" stroke="#E5DEC9" stroke-width="2" />
+
+                                <!-- Tier 1: Sponge Base Layer -->
+                                <g id="sponge-group" filter="url(#cakeShadow)">
+                                    <!-- Sponge Body Cylindrical Base representation -->
+                                    <path id="cake-sponge" d="M 70,220 L 70,290 C 70,305 230,305 230,290 L 230,220 Z" fill="#EBD6AC" transition="fill 0.4s" />
+                                    <!-- Sponge Top Curvature -->
+                                    <ellipse id="cake-sponge-top" cx="150" cy="220" rx="80" ry="14" fill="#DFC18F" />
+                                </g>
+
+                                <!-- Tier 2: Cream Frosting Layer (slightly smaller, overlapping) -->
+                                <g id="frosting-group" filter="url(#cakeShadow)">
+                                    <!-- Frosting Cylindrical Base representation -->
+                                    <path id="cake-frosting" d="M 80,150 L 80,215 C 80,225 220,225 220,215 L 220,150 Z" fill="#FFF8F0" />
+                                    <!-- Frosting Top Curvature -->
+                                    <ellipse id="cake-frosting-top" cx="150" cy="150" rx="70" ry="12" fill="#FFF0E3" />
+                                    <!-- Frosting drip details dynamically updated -->
+                                    <path id="cake-drips" d="M 80,155 Q 95,175 110,155 Q 125,185 140,155 Q 165,185 180,155 Q 200,175 220,155" stroke="#FFF0E3" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+                                </g>
+
+                                <!-- Toppings Group overlaying top of Tier 2 -->
+                                <g id="toppings-container">
+                                    <!-- Candle (default option) -->
+                                    <g id="topping-candle" class="transition-opacity duration-300">
+                                        <rect x="147" y="100" width="6" height="40" fill="#E8B095" rx="1" />
+                                        <path d="M 150,90 Q 153,95 150,100 Q 147,95 150,90 Z" fill="#FFA500">
+                                            <animate attributeName="opacity" values="0.7;1;0.7" dur="1s" repeatCount="indefinite" />
+                                        </path>
+                                    </g>
+                                    
+                                    <!-- Cherries option -->
+                                    <g id="topping-cherries" class="hidden transition-opacity duration-300">
+                                        <!-- Cherry 1 -->
+                                        <circle cx="130" cy="140" r="8" fill="#A11B21" />
+                                        <path d="M 130,132 Q 140,115 150,140" stroke="#5E6346" stroke-width="1.5" fill="none" />
+                                        <!-- Cherry 2 -->
+                                        <circle cx="170" cy="142" r="8" fill="#A11B21" />
+                                        <path d="M 170,134 Q 160,115 150,140" stroke="#5E6346" stroke-width="1.5" fill="none" />
+                                    </g>
+                                    
+                                    <!-- Gold flakes option -->
+                                    <g id="topping-gold" class="hidden transition-opacity duration-300">
+                                        <polygon points="120,145 125,142 123,148" fill="#D4AF37" />
+                                        <polygon points="150,142 153,139 152,144" fill="#D4AF37" />
+                                        <polygon points="175,145 180,142 178,148" fill="#D4AF37" />
+                                        <polygon points="135,148 138,152 134,151" fill="#D4AF37" />
+                                        <polygon points="160,148 163,152 159,151" fill="#D4AF37" />
+                                    </g>
+
+                                    <!-- Lavender sprig option -->
+                                    <g id="topping-lavender" class="hidden transition-opacity duration-300">
+                                        <!-- Sprig stems -->
+                                        <path d="M 140,145 Q 120,110 115,100" stroke="#5E6346" stroke-width="1.5" fill="none" />
+                                        <path d="M 160,145 Q 180,110 185,100" stroke="#5E6346" stroke-width="1.5" fill="none" />
+                                        <!-- Lavender flowers left -->
+                                        <ellipse cx="115" cy="100" rx="3" ry="5" fill="#9F8CD4" />
+                                        <ellipse cx="118" cy="105" rx="3" ry="4" fill="#9F8CD4" />
+                                        <ellipse cx="112" cy="110" rx="3" ry="4" fill="#9F8CD4" />
+                                        <!-- Lavender flowers right -->
+                                        <ellipse cx="185" cy="100" rx="3" ry="5" fill="#9F8CD4" />
+                                        <ellipse cx="182" cy="105" rx="3" ry="4" fill="#9F8CD4" />
+                                        <ellipse cx="188" cy="110" rx="3" ry="4" fill="#9F8CD4" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- Mini real-time readout of specs -->
+                        <div class="mt-4 text-center space-y-1">
+                            <h4 id="summary-title" class="text-sm font-semibold text-espresso-900 font-serif">The Classic Celebration</h4>
+                            <p class="text-xs text-espresso-700/60 font-medium">Size: Single Tier (Ø 8")</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Customizer Control Interface -->
+                <div class="lg:col-span-6 space-y-8">
+                    
+                    <!-- Control Option Section 1: Sponge Base -->
+                    <div class="space-y-4">
+                        <label class="text-xs font-bold uppercase tracking-wider text-espresso-800 flex items-center space-x-2">
+                            <span class="bg-gold-400 text-cream-50 w-5 h-5 rounded-full flex items-center justify-center text-[10px]">1</span>
+                            <span>Choose Sponge Flavor</span>
+                        </label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="setSponge('vanilla', '#EBD6AC', '#DFC18F', 'Rich Vanilla')" class="sponge-btn p-4 rounded-2xl bg-cream-50 hover:bg-gold-400/10 border-2 border-gold-400 text-left transition-all duration-200">
+                                <span class="block text-sm font-semibold text-espresso-900">Vanilla Sponge</span>
+                                <span class="text-[10px] text-espresso-700/60 font-light block mt-1">Light vanilla bean bean-specks</span>
+                            </button>
+                            <button onclick="setSponge('chocolate', '#53372B', '#422A20', 'Belgian Chocolate')" class="sponge-btn p-4 rounded-2xl bg-cream-50 hover:bg-gold-400/10 border-2 border-transparent text-left transition-all duration-200">
+                                <span class="block text-sm font-semibold text-espresso-900">Belgian Cacao</span>
+                                <span class="text-[10px] text-espresso-700/60 font-light block mt-1">Double dark chocolate crumb</span>
+                            </button>
+                            <button onclick="setSponge('redvelvet', '#8E282B', '#7A2224', 'Crimson Red Velvet')" class="sponge-btn p-4 rounded-2xl bg-cream-50 hover:bg-gold-400/10 border-2 border-transparent text-left transition-all duration-200">
+                                <span class="block text-sm font-semibold text-espresso-900">Red Velvet</span>
+                                <span class="text-[10px] text-espresso-700/60 font-light block mt-1">Rich crimson sponge, trace cocoa</span>
+                            </button>
+                            <button onclick="setSponge('matcha', '#859E6B', '#708857', 'Uji Matcha Infusion')" class="sponge-btn p-4 rounded-2xl bg-cream-50 hover:bg-gold-400/10 border-2 border-transparent text-left transition-all duration-200">
+                                <span class="block text-sm font-semibold text-espresso-900">Uji Matcha</span>
+                                <span class="text-[10px] text-espresso-700/60 font-light block mt-1">Organic green tea earthy notes</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Control Option Section 2: Frosting Glaze -->
+                    <div class="space-y-4">
+                        <label class="text-xs font-bold uppercase tracking-wider text-espresso-800 flex items-center space-x-2">
+                            <span class="bg-gold-400 text-cream-50 w-5 h-5 rounded-full flex items-center justify-center text-[10px]">2</span>
+                            <span>Choose Frosting Cream</span>
+                        </label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <button onclick="setFrosting('classic', '#FFF8F0', '#FFF0E3')" class="frosting-btn p-3 rounded-xl border-2 border-gold-400 text-center transition-all bg-cream-50 flex flex-col items-center">
+                                <span class="w-6 h-6 rounded-full border border-cream-200 mb-1" style="background-color: #FFF8F0;"></span>
+                                <span class="text-[10px] font-semibold text-espresso-900">Sweet Milk</span>
+                            </button>
+                            <button onclick="setFrosting('strawberry', '#FFD1DC', '#FFB7C5')" class="frosting-btn p-3 rounded-xl border-2 border-transparent text-center transition-all bg-cream-50 flex flex-col items-center">
+                                <span class="w-6 h-6 rounded-full border border-cream-200 mb-1" style="background-color: #FFD1DC;"></span>
+                                <span class="text-[10px] font-semibold text-espresso-900">Berry Pink</span>
+                            </button>
+                            <button onclick="setFrosting('chocolate', '#4E3126', '#3E251B')" class="frosting-btn p-3 rounded-xl border-2 border-transparent text-center transition-all bg-cream-50 flex flex-col items-center">
+                                <span class="w-6 h-6 rounded-full border border-cream-200 mb-1" style="background-color: #4E3126;"></span>
+                                <span class="text-[10px] font-semibold text-espresso-900">Ganache</span>
+                            </button>
+                            <button onclick="setFrosting('pistachio', '#D8E2DC', '#C7D3CD')" class="frosting-btn p-3 rounded-xl border-2 border-transparent text-center transition-all bg-cream-50 flex flex-col items-center">
+                                <span class="w-6 h-6 rounded-full border border-cream-200 mb-1" style="background-color: #D8E2DC;"></span>
+                                <span class="text-[10px] font-semibold text-espresso-900">Pistachio</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Control Option Section 3: Fine Toppings -->
+                    <div class="space-y-4">
+                        <label class="text-xs font-bold uppercase tracking-wider text-espresso-800 flex items-center space-x-2">
+                            <span class="bg-gold-400 text-cream-50 w-5 h-5 rounded-full flex items-center justify-center text-[10px]">3</span>
+                            <span>Select Crown Topping</span>
+                        </label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <button onclick="setTopping('candle')" class="topping-btn p-3 rounded-xl border-2 border-gold-400 text-center bg-cream-50 transition-all flex flex-col items-center">
+                                <i class="fa-solid fa-cake-candles text-espresso-800 text-base mb-1"></i>
+                                <span class="text-[10px] font-semibold text-espresso-900">Single Candle</span>
+                            </button>
+                            <button onclick="setTopping('cherries')" class="topping-btn p-3 rounded-xl border-2 border-transparent text-center bg-cream-50 transition-all flex flex-col items-center">
+                                <i class="fa-solid fa-lemon text-espresso-800 text-base mb-1"></i>
+                                <span class="text-[10px] font-semibold text-espresso-900">Glace Cherries</span>
+                            </button>
+                            <button onclick="setTopping('gold')" class="topping-btn p-3 rounded-xl border-2 border-transparent text-center bg-cream-50 transition-all flex flex-col items-center">
+                                <i class="fa-solid fa-wand-magic-sparkles text-espresso-800 text-base mb-1"></i>
+                                <span class="text-[10px] font-semibold text-espresso-900">Gold Flakes</span>
+                            </button>
+                            <button onclick="setTopping('lavender')" class="topping-btn p-3 rounded-xl border-2 border-transparent text-center bg-cream-50 transition-all flex flex-col items-center">
+                                <i class="fa-solid fa-spa text-espresso-800 text-base mb-1"></i>
+                                <span class="text-[10px] font-semibold text-espresso-900">Lavender Stems</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Custom Quote Generator & Share Action -->
+                    <div class="pt-6 border-t border-cream-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs text-espresso-700/60 block">Est. Consultation Price</span>
+                            <span class="text-xl font-bold text-espresso-900">$48.00 USD</span>
+                        </div>
+                        <button onclick="submitCustomCakeOrder()" class="w-full sm:w-auto bg-espresso-900 hover:bg-gold-500 text-cream-50 text-xs tracking-widest uppercase font-semibold px-8 py-4 rounded-full transition-all duration-300">
+                            Place Custom Order Request
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- The Curated Menu Section -->
+    <section id="menu" class="py-24 bg-cream-50 relative px-6 md:px-12">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header elements -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+                <div class="space-y-3">
+                    <span class="text-xs uppercase tracking-[0.25em] text-gold-600 font-semibold block">Fresh From The Oven</span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-espresso-900">Curated Menu Selection</h2>
+                </div>
+                
+                <!-- Category Tabs with dynamic triggers -->
+                <div class="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-widest">
+                    <button onclick="filterMenu('all')" id="tab-all" class="menu-tab px-5 py-2.5 rounded-full bg-espresso-900 text-cream-50 transition-all duration-300">All</button>
+                    <button onclick="filterMenu('signature')" id="tab-signature" class="menu-tab px-5 py-2.5 rounded-full bg-cream-200 text-espresso-800 hover:bg-cream-300 transition-all duration-300">Signature Pastry</button>
+                    <button onclick="filterMenu('sourdough')" id="tab-sourdough" class="menu-tab px-5 py-2.5 rounded-full bg-cream-200 text-espresso-800 hover:bg-cream-300 transition-all duration-300">Sourdough</button>
+                    <button onclick="filterMenu('cakes')" id="tab-cakes" class="menu-tab px-5 py-2.5 rounded-full bg-cream-200 text-espresso-800 hover:bg-cream-300 transition-all duration-300">Whole Cakes</button>
+                </div>
+            </div>
+
+            <!-- Menu Cards Grid (populated dynamically from content.json) -->
+            <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu items injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section (Minimal Carousel with subtle visual layout) -->
+    <section class="py-24 bg-cream-100 relative overflow-hidden px-6 md:px-12 border-t border-cream-200/40">
+        <div class="max-w-4xl mx-auto text-center space-y-12">
+            <span class="text-xs uppercase tracking-[0.25em] text-gold-600 font-semibold block">True Experiences</span>
+            
+            <!-- Simple Carousel Container (populated dynamically from content.json) -->
+            <div id="testimonial-slides" class="relative h-64 flex flex-col justify-center items-center">
+                <!-- Testimonial slides injected by JS -->
+            </div>
+
+            <!-- Dots Nav (populated dynamically from content.json) -->
+            <div id="testimonial-dots" class="flex justify-center space-x-2 pt-6">
+                <!-- Dots injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Order Details Section -->
+    <section id="contact" class="py-24 bg-cream-50 relative px-6 md:px-12 overflow-hidden">
+        
+        <!-- Background circular elements -->
+        <div class="absolute top-1/2 left-0 w-80 h-80 bg-gold-400/5 rounded-full blur-2xl -translate-y-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10">
+            <!-- Left Contact Info Details -->
+            <div class="lg:col-span-5 space-y-8">
+                <div class="space-y-3">
+                    <span id="contact-eyebrow" class="text-xs uppercase tracking-[0.25em] text-gold-600 font-semibold block">Come Say Hello</span>
+                    <h2 id="contact-heading" class="text-3xl md:text-4xl font-serif text-espresso-900">Visit Our Kitchen or Order Custom</h2>
+                    <p id="contact-description" class="text-espresso-800/70 font-light text-sm md:text-base leading-relaxed">
+                        Stop by to smell the hot country ovens, pick up fresh morning bread, or request a catered consultation for corporate pastry packs or events.
+                    </p>
+                </div>
+
+                <div class="space-y-6 pt-4 text-sm text-espresso-800">
+                    <div class="flex items-start space-x-4">
+                        <div class="p-2.5 bg-cream-100 rounded-lg text-gold-600 border border-cream-200">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-espresso-900">Bakery Location</h4>
+                            <p id="contact-address" class="text-xs text-espresso-700/70 font-light mt-1">Paldi, Ahmedabad, Gujarat 380009</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="p-2.5 bg-cream-100 rounded-lg text-gold-600 border border-cream-200">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-espresso-900">Opening Hours</h4>
+                            <p id="contact-hours1" class="text-xs text-espresso-700/70 font-light mt-1">Tuesday – Saturday: 07:00 AM – 02:00 PM (Or sold out)</p>
+                            <p id="contact-hours2" class="text-xs text-espresso-700/70 font-light">Sunday – Monday: Rest and recipe testing</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="p-2.5 bg-cream-100 rounded-lg text-gold-600 border border-cream-200">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-espresso-900">Inquiries</h4>
+                            <p id="contact-email" class="text-xs text-espresso-700/70 font-light mt-1">uumangasaur.gaming10@gmail.com</p>
+                            <p id="contact-phone" class="text-xs text-espresso-700/70 font-light">+91 91575 83057</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Creative Elegant Form -->
+            <div class="lg:col-span-7 bg-cream-100 rounded-3xl p-6 sm:p-10 border border-cream-200/60 shadow-lg">
+                <h3 class="text-2xl font-serif text-espresso-900 mb-6">Inquire About an Order</h3>
+                
+                <form onsubmit="handleInquiryForm(event)" class="space-y-6">
+                    <!-- Web3Forms configuration -->
+                    <input type="hidden" name="access_key" value="80f2c2ab-3937-43b9-b223-2e58f0d0aa7d">
+                    <input type="hidden" name="subject" value="New Enquiry - Minu's Bakery Website">
+                    <input type="hidden" name="from_name" value="Minu's Bakery Website">
+                    <!-- Honeypot spam trap: must stay empty, hidden from real users -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold uppercase tracking-wider text-espresso-700/80">Full Name</label>
+                            <input type="text" id="form-name" name="name" required class="w-full bg-cream-50 focus:bg-white text-espresso-900 border border-cream-200 focus:border-gold-400 focus:ring-1 focus:ring-gold-400 p-3 rounded-xl text-sm transition-all outline-none" placeholder="Your name">
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold uppercase tracking-wider text-espresso-700/80">Email Address</label>
+                            <input type="email" id="form-email" name="email" required class="w-full bg-cream-50 focus:bg-white text-espresso-900 border border-cream-200 focus:border-gold-400 focus:ring-1 focus:ring-gold-400 p-3 rounded-xl text-sm transition-all outline-none" placeholder="Your email">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold uppercase tracking-wider text-espresso-700/80">Inquiry Type</label>
+                            <select id="form-type" name="inquiry_type" class="w-full bg-cream-50 focus:bg-white text-espresso-900 border border-cream-200 focus:border-gold-400 focus:ring-1 focus:ring-gold-400 p-3 rounded-xl text-sm transition-all outline-none">
+                                <option value="catering">Event Catering Package</option>
+                                <option value="wholesale">Bespoke Whole Cake Inquiry</option>
+                                <option value="general">General Love Letter / Hello</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold uppercase tracking-wider text-espresso-700/80">Requested Date</label>
+                            <input type="date" id="form-date" name="requested_date" class="w-full bg-cream-50 focus:bg-white text-espresso-900 border border-cream-200 focus:border-gold-400 focus:ring-1 focus:ring-gold-400 p-3 rounded-xl text-sm transition-all outline-none">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-semibold uppercase tracking-wider text-espresso-700/80">Your Message Details</label>
+                        <textarea id="form-message" name="message" required rows="4" class="w-full bg-cream-50 focus:bg-white text-espresso-900 border border-cream-200 focus:border-gold-400 focus:ring-1 focus:ring-gold-400 p-3 rounded-xl text-sm transition-all outline-none resize-none" placeholder="Let us know what you have in mind..."></textarea>
+                    </div>
+
+                    <button type="submit" id="form-submit-btn" class="w-full bg-espresso-900 hover:bg-gold-500 text-cream-50 font-semibold text-xs tracking-widest uppercase py-4 rounded-xl transition-all duration-300 shadow-md disabled:opacity-60 disabled:cursor-not-allowed">
+                        Send Inquiry Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-espresso-900 text-cream-100 py-16 px-6 md:px-12 relative border-t border-espresso-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 items-start">
+            
+            <!-- Brand Column -->
+            <div class="space-y-4">
+                <a href="#" class="inline-block">
+                    <span class="text-3xl font-serif tracking-wide text-cream-50">Minu's</span>
+                    <span class="text-xs block bg-gold-400 text-espresso-900 font-sans tracking-widest uppercase font-bold py-0.5 px-2 mt-1 rounded w-max">Bakery</span>
+                </a>
+                <p id="footer-tagline" class="text-xs text-cream-300/70 font-light leading-relaxed max-w-sm">
+                    A beautiful minimal bakery focusing on traditional baking methods, slow fermentation, and customized premium design cakes.
+                </p>
+                <div class="flex space-x-4 pt-2">
+                    <a href="#" class="text-cream-300 hover:text-gold-400 transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="#" class="text-cream-300 hover:text-gold-400 transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-base"></i></a>
+                    <a href="#" class="text-cream-300 hover:text-gold-400 transition-colors" aria-label="Pinterest"><i class="fa-brands fa-pinterest text-lg"></i></a>
+                </div>
+            </div>
+
+            <!-- Links Column -->
+            <div class="space-y-4">
+                <h4 class="font-semibold text-xs tracking-widest uppercase text-gold-400">Explore</h4>
+                <div class="flex flex-col space-y-2 text-xs text-cream-300/80">
+                    <a href="#about" class="hover:text-cream-50 transition-colors">Our Baking Legacy</a>
+                    <a href="#menu" class="hover:text-cream-50 transition-colors">Fresh Pastries Menu</a>
+                    <a href="#cake-visualizer" class="hover:text-cream-50 transition-colors">Build a Custom Cake</a>
+                    <a href="#quiz" class="hover:text-cream-50 transition-colors">Find Your Pastry Match</a>
+                </div>
+            </div>
+
+            <!-- Info Column -->
+            <div class="space-y-4">
+                <h4 class="font-semibold text-xs tracking-widest uppercase text-gold-400">Join our newsletter</h4>
+                <p class="text-xs text-cream-300/70 font-light">Get early notices on seasonal sourdough batches and premium weekend custom cake slots.</p>
+                <div class="flex space-x-1">
+                    <input type="email" placeholder="Your email address" class="bg-espresso-800 text-cream-50 p-2.5 rounded-lg text-xs outline-none focus:ring-1 focus:ring-gold-400 border border-espresso-700/60 w-full">
+                    <button onclick="subscribeNewsletter()" class="bg-gold-400 hover:bg-gold-500 text-espresso-900 font-bold px-4 py-2.5 rounded-lg text-xs transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+
+            <!-- Slogan & Core values column -->
+            <div class="space-y-4">
+                <h4 class="font-semibold text-xs tracking-widest uppercase text-gold-400">Our promise</h4>
+                <p id="footer-promise-quote" class="text-[11px] text-cream-300/60 font-serif italic leading-relaxed">
+                    "Every flour grain, every gram of local butter, every drop of milk, and every single second of cold proof is respected. This is my commitment to your table."
+                </p>
+                <span id="footer-promise-author" class="block text-xs uppercase font-semibold text-gold-400">— Chef Minu</span>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-espresso-800 text-center text-[10px] text-cream-300/40 font-light flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span id="footer-copyright">&copy; 2026 Minu's Bakery Co. All Rights Reserved. Artisanal Elegance.</span>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+                <a href="#" class="hover:underline">Terms of Service</a>
+                <a href="#" class="hover:underline">Baking Standards</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a id="whatsapp-float-btn" href="https://wa.me/919157583057?text=Hi%20Minu's%20Bakery%2C%20I%20have%20an%20enquiry!" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" class="fixed bottom-6 left-6 z-50 bg-[#25D366] hover:bg-[#1ebe5d] text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Customized Toast Message Dialog -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-espresso-900 text-cream-50 px-6 py-4 rounded-2xl shadow-xl flex items-center space-x-3 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300">
+        <div id="toast-icon" class="text-gold-400 text-base"><i class="fa-solid fa-check-circle"></i></div>
+        <div id="toast-text" class="text-xs font-semibold tracking-wide">Item added to your Bakery box!</div>
+    </div>
+
+    <!-- Interaction Mechanics and Custom Animations Script -->
+    <script>
+        /* ---------------- TOAST DIALOG INTERACTION ---------------- */
+        function showToast(text, icon = 'check-circle') {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+            const toastIcon = document.getElementById('toast-icon');
+
+            toastText.innerText = text;
+            toastIcon.innerHTML = `<i class="fa-solid fa-${icon}"></i>`;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        /* ---------------- NAVIGATION HAMBURGER DRAWER ---------------- */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+                icon.className = "fa-solid fa-xmark text-xl";
+            } else {
+                menu.classList.add('translate-x-full');
+                icon.className = "fa-solid fa-bars text-xl";
+            }
+        }
+
+        /* ---------------- CURATED MENU FILTER TABS ---------------- */
+        function filterMenu(category) {
+            // Update Active Tab styles
+            const tabs = document.querySelectorAll('.menu-tab');
+            tabs.forEach(tab => {
+                if (tab.id === `tab-${category}`) {
+                    tab.className = "menu-tab px-5 py-2.5 rounded-full bg-espresso-900 text-cream-50 transition-all duration-300";
+                } else {
+                    tab.className = "menu-tab px-5 py-2.5 rounded-full bg-cream-200 text-espresso-800 hover:bg-cream-300 transition-all duration-300";
+                }
+            });
+
+            // Filter items cards list
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden');
+                    setTimeout(() => { item.style.opacity = '1'; }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(() => { item.classList.add('hidden'); }, 300);
+                }
+            });
+        }
+
+        /* ---------------- CUSTOM CAKE VISUALIZER ENGINE ---------------- */
+        let customCakeConfig = {
+            sponge: 'vanilla',
+            frosting: 'classic',
+            topping: 'candle',
+            spongeTitle: 'Rich Vanilla'
+        };
+
+        function setSponge(type, baseColor, topColor, title) {
+            customCakeConfig.sponge = type;
+            customCakeConfig.spongeTitle = title;
+            
+            // Adjust SVG sponge colors
+            document.getElementById('cake-sponge').setAttribute('fill', baseColor);
+            document.getElementById('cake-sponge-top').setAttribute('fill', topColor);
+
+            // Update Selected Button outline styles
+            const buttons = document.querySelectorAll('.sponge-btn');
+            buttons.forEach(btn => {
+                if (btn.outerHTML.includes(type)) {
+                    btn.classList.add('border-gold-400');
+                    btn.classList.remove('border-transparent');
+                } else {
+                    btn.classList.remove('border-gold-400');
+                    btn.classList.add('border-transparent');
+                }
+            });
+
+            updateCakeVisualizerMeta();
+        }
+
+        function setFrosting(type, baseColor, dripColor) {
+            customCakeConfig.frosting = type;
+
+            // Adjust SVG frosting colors
+            document.getElementById('cake-frosting').setAttribute('fill', baseColor);
+            document.getElementById('cake-frosting-top').setAttribute('fill', dripColor);
+            document.getElementById('cake-drips').setAttribute('stroke', dripColor);
+
+            // Update Selected Button outline styles
+            const buttons = document.querySelectorAll('.frosting-btn');
+            buttons.forEach(btn => {
+                if (btn.outerHTML.includes(type)) {
+                    btn.classList.add('border-gold-400');
+                    btn.classList.remove('border-transparent');
+                } else {
+                    btn.classList.remove('border-gold-400');
+                    btn.classList.add('border-transparent');
+                }
+            });
+
+            updateCakeVisualizerMeta();
+        }
+
+        function setTopping(type) {
+            customCakeConfig.topping = type;
+
+            // Toggle custom toppings
+            const toppings = ['candle', 'cherries', 'gold', 'lavender'];
+            toppings.forEach(t => {
+                const element = document.getElementById(`topping-${t}`);
+                if (t === type) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
+
+            // Update Selected Button outline styles
+            const buttons = document.querySelectorAll('.topping-btn');
+            buttons.forEach(btn => {
+                if (btn.outerHTML.includes(type)) {
+                    btn.classList.add('border-gold-400');
+                    btn.classList.remove('border-transparent');
+                } else {
+                    btn.classList.remove('border-gold-400');
+                    btn.classList.add('border-transparent');
+                }
+            });
+
+            updateCakeVisualizerMeta();
+        }
+
+        function updateCakeVisualizerMeta() {
+            const titleElement = document.getElementById('summary-title');
+            const frostingNames = {
+                classic: 'Classic Sweet Milk',
+                strawberry: 'Wild Berry Cream',
+                chocolate: 'Belgian Ganache',
+                pistachio: 'Pistachio Fluff'
+            };
+            const toppingNames = {
+                candle: 'With Celebration Candle',
+                cherries: 'Enriched Glace Cherries',
+                gold: 'Accented Gold Foil Flakes',
+                lavender: 'Dotted Wild Lavender Sprigs'
+            };
+
+            const fullTitle = `${customCakeConfig.spongeTitle} Sponge with ${frostingNames[customCakeConfig.frosting]} & ${toppingNames[customCakeConfig.topping]}`;
+            titleElement.innerText = fullTitle;
+        }
+
+        function submitCustomCakeOrder() {
+            showToast('Cake custom configuration locked! Our wedding/celebration chef will contact you.', 'star');
+        }
+
+        /* ---------------- REVEAL SCROLL OBSERVER ENGINE ---------------- */
+        window.addEventListener('scroll', revealElements);
+
+        function revealElements() {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // Initialize elements once fully parsed
+        window.onload = function() {
+            revealElements();
+        };
+
+        /* ---------------- PORTFOLIO VIBE MATCHER QUIZ LOGIC ---------------- */
+        let currentStep = 1;
+        let quizAnswers = {
+            vibe: '',
+            flavor: '',
+            scent: ''
+        };
+
+        const quizData = {
+            1: {
+                title: "How does your ideal morning begin?",
+                options: [
+                    { label: "Quiet book reading with soft rains", val: "cozy" },
+                    { label: "High-paced workout jog in the fresh air", val: "energetic" },
+                    { label: "Luxurious slow breakfast buffet with bubbly", val: "indulgent" }
+                ]
+            },
+            2: {
+                title: "What flavor palate appeals to you most?",
+                options: [
+                    { label: "Extremely rich cocoa, chocolate & hazelnuts", val: "rich" },
+                    { label: "Tangy country yeast, wild herbs & sea salt", val: "sourdough" },
+                    { label: "Sweet berry glazes, vanilla beans & roses", val: "fruity" }
+                ]
+            },
+            3: {
+                title: "Which scent fills you with absolute joy?",
+                options: [
+                    { label: "Warm caramelized butter crusts from oven", val: "butter" },
+                    { label: "Toasted rosemary & crushed country olives", val: "herb" },
+                    { label: "Matcha green tea steam & delicate honey", val: "matcha" }
+                ]
+            }
+        };
+
+        function nextQuizStep(step, val) {
+            if (step === 1) {
+                quizAnswers.vibe = val;
+                loadQuizStep(2);
+            } else if (step === 2) {
+                quizAnswers.flavor = val;
+                loadQuizStep(3);
+            } else if (step === 3) {
+                quizAnswers.scent = val;
+                showQuizResult();
+            }
+        }
+
+        function prevQuizStep() {
+            if (currentStep > 1) {
+                loadQuizStep(currentStep - 1);
+            }
+        }
+
+        function loadQuizStep(stepNum) {
+            currentStep = stepNum;
+            const content = document.getElementById('quiz-content');
+            const stepLabel = document.getElementById('quiz-step-label');
+            const backBtn = document.getElementById('quiz-back');
+
+            // Toggle Back Button status
+            if (currentStep > 1) {
+                backBtn.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                backBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+
+            // Update dots indication
+            for (let i = 1; i <= 3; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                if (i <= currentStep) {
+                    dot.className = "w-2 h-2 rounded-full bg-gold-400 transition-all duration-300";
+                } else {
+                    dot.className = "w-2 h-2 rounded-full bg-cream-300 transition-all duration-300";
+                }
+            }
+
+            stepLabel.innerText = `Question ${currentStep} of 3`;
+
+            // Animate transition fade
+            content.classList.add('opacity-0');
+            setTimeout(() => {
+                const stepInfo = quizData[currentStep];
+                let buttonsHtml = `<h3 class="text-base sm:text-lg md:text-xl font-serif text-espresso-900 text-center">${stepInfo.title}</h3>
+                                   <div class="grid grid-cols-1 gap-3 mt-4">`;
+                
+                stepInfo.options.forEach(opt => {
+                    buttonsHtml += `
+                        <button onclick="nextQuizStep(${currentStep}, '${opt.val}')" class="w-full text-left p-4 rounded-2xl bg-cream-50 hover:bg-gold-400/10 hover:border-gold-400 border border-transparent transition-all duration-200 text-xs sm:text-sm flex items-center justify-between">
+                            <span>${opt.label}</span>
+                            <i class="fa-solid fa-chevron-right text-xs text-gold-500"></i>
+                        </button>
+                    `;
+                });
+                buttonsHtml += `</div>`;
+                content.innerHTML = buttonsHtml;
+                content.classList.remove('opacity-0');
+            }, 200);
+        }
+
+        function showQuizResult() {
+            const content = document.getElementById('quiz-content');
+            const stepLabel = document.getElementById('quiz-step-label');
+            const backBtn = document.getElementById('quiz-back');
+
+            backBtn.classList.add('opacity-0', 'pointer-events-none');
+            stepLabel.innerText = "Match Analysis Complete!";
+
+            // Decide recommendation logic based on quiz answers
+            let matches = {
+                name: "Classic Butter Croissant",
+                desc: "An immaculate choice. Your appreciation for slow mornings, high butter lamination, and flaky warmth maps perfectly to Minu's signature Croissant, baked hourly.",
+                price: "$4.50"
+            };
+
+            if (quizAnswers.flavor === 'rich') {
+                matches = {
+                    name: "Belgian Fudge Cloud Cake",
+                    desc: "You prioritize pure chocolate indulgence. The Belgian Fudge Cloud Cake with rich layers of organic dark chocolate ganache is your absolute flavor destiny.",
+                    price: "$45.00"
+                };
+            } else if (quizAnswers.flavor === 'sourdough' || quizAnswers.scent === 'herb') {
+                matches = {
+                    name: "Kalamata Olive Sourdough",
+                    desc: "You enjoy savory depth and natural complexity. Our wild country olive and rosemary sourdough starter loaf was baked just for your rustic soul.",
+                    price: "$8.50"
+                };
+            } else if (quizAnswers.vibe === 'cozy' && quizAnswers.flavor === 'fruity') {
+                matches = {
+                    name: "Pistachio Rose Cake",
+                    desc: "Your love for subtle elegance, aromatic floral scents, and reading nooks match the delicate, moisture-dense rosewater and pistachio sponge layers perfectly.",
+                    price: "$42.00"
+                };
+            }
+
+            content.classList.add('opacity-0');
+            setTimeout(() => {
+                content.innerHTML = `
+                    <div class="text-center space-y-4 py-4">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-gold-600">Your Pastry Match</span>
+                        <h4 class="font-serif text-2xl text-espresso-900">${matches.name}</h4>
+                        <p class="text-xs sm:text-sm text-espresso-800/80 font-light max-w-sm mx-auto leading-relaxed">${matches.desc}</p>
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                            <a href="#contact" onclick="resetQuiz();" class="bg-espresso-900 hover:bg-gold-500 text-cream-50 font-semibold uppercase tracking-widest text-xs px-6 py-3 rounded-xl transition-all duration-200 w-full sm:w-auto inline-block">
+                                Enquire About This (${matches.price})
+                            </a>
+                        </div>
+                    </div>
+                `;
+                content.classList.remove('opacity-0');
+            }, 200);
+        }
+
+        function resetQuiz() {
+            quizAnswers = { vibe: '', flavor: '', scent: '' };
+            loadQuizStep(1);
+        }
+
+        /* ---------------- TESTIMONIAL CAROUSEL TRANSITIONS ---------------- */
+        let currentTestimonial = 0;
+        function setTestimonial(idx) {
+            currentTestimonial = idx;
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.t-dot');
+
+            slides.forEach((slide, i) => {
+                if (i === idx) {
+                    slide.classList.remove('opacity-0', 'pointer-events-none');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.add('opacity-0', 'pointer-events-none');
+                    slide.classList.remove('opacity-100');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === idx) {
+                    dot.className = "t-dot w-2 h-2 rounded-full bg-gold-500 transition-colors duration-200";
+                } else {
+                    dot.className = "t-dot w-2 h-2 rounded-full bg-cream-300 hover:bg-gold-500 transition-colors duration-200";
+                }
+            });
+        }
+
+        /* ---------------- GENERAL INQUIRY HANDLER (Web3Forms) ---------------- */
+        async function handleInquiryForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const submitBtn = document.getElementById('form-submit-btn');
+            const name = document.getElementById('form-name').value;
+
+            // Honeypot check: if filled, silently drop (bot)
+            const honeypot = form.querySelector('input[name="botcheck"]');
+            if (honeypot && honeypot.checked) {
+                form.reset();
+                return;
+            }
+
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Sending...';
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: formData
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    showToast(`Thank you, ${name}! Your bakery inquiry has been submitted.`, 'paper-plane');
+                    form.reset();
+                } else {
+                    showToast('Something went wrong. Please try again or contact us on WhatsApp.', 'exclamation-circle');
+                }
+            } catch (error) {
+                showToast('Network error. Please try again or contact us on WhatsApp.', 'exclamation-circle');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalBtnText;
+            }
+        }
+
+        function subscribeNewsletter() {
+            showToast('Sweet! You are now subscribed to Minu\'s weekend batch updates.', 'envelope');
+        }
+
+        /* ---------------- DYNAMIC CONTENT LOADER (from content.json, editable via CMS) ---------------- */
+        function setText(id, value) {
+            const el = document.getElementById(id);
+            if (el && value !== undefined && value !== null) el.innerText = value;
+        }
+
+        function setHTML(id, value) {
+            const el = document.getElementById(id);
+            if (el && value !== undefined && value !== null) el.innerHTML = value;
+        }
+
+        function setAttr(id, attr, value) {
+            const el = document.getElementById(id);
+            if (el && value !== undefined && value !== null) el.setAttribute(attr, value);
+        }
+
+        function renderMenuItems(items) {
+            const grid = document.getElementById('menu-grid');
+            if (!grid || !items) return;
+            grid.innerHTML = '';
+            items.forEach(item => {
+                const badgeHTML = item.badge
+                    ? `<span class="absolute top-4 right-4 bg-cream-50 text-[10px] font-bold uppercase tracking-widest text-espresso-900 px-3 py-1 rounded-full border border-cream-200">${item.badge}</span>`
+                    : '';
+                const card = document.createElement('div');
+                card.className = 'menu-item bg-cream-100 rounded-3xl overflow-hidden border border-cream-200/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group';
+                card.setAttribute('data-category', item.category || 'all');
+                card.innerHTML = `
+                    <div class="relative overflow-hidden h-64">
+                        <img src="${item.image_url}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F4EFE6/2A211F?text=${encodeURIComponent(item.name)}'">
+                        ${badgeHTML}
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-xl text-espresso-900 group-hover:text-gold-500 transition-colors">${item.name}</h3>
+                            <span class="text-sm font-bold text-espresso-800">${item.price}</span>
+                        </div>
+                        <p class="text-xs text-espresso-700/70 font-light leading-relaxed">
+                            ${item.description}
+                        </p>
+                        <div class="flex justify-between items-center pt-2">
+                            <span class="text-[10px] uppercase font-semibold text-gold-600 tracking-wider">${item.tag || ''}</span>
+                            <a href="#contact" class="bg-cream-50 hover:bg-espresso-900 hover:text-cream-50 p-2.5 rounded-full border border-cream-300 transition-colors text-xs flex items-center space-x-2 px-4">
+                                <span>Enquire</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function renderTestimonials(testimonials) {
+            const slidesContainer = document.getElementById('testimonial-slides');
+            const dotsContainer = document.getElementById('testimonial-dots');
+            if (!slidesContainer || !dotsContainer || !testimonials) return;
+            slidesContainer.innerHTML = '';
+            dotsContainer.innerHTML = '';
+            testimonials.forEach((t, idx) => {
+                const isFirst = idx === 0;
+                const slide = document.createElement('div');
+                slide.className = `testimonial-slide ${isFirst ? 'opacity-100' : 'opacity-0 pointer-events-none'} transition-opacity duration-500 absolute inset-0 flex flex-col justify-center items-center space-y-6`;
+                slide.innerHTML = `
+                    <p class="text-lg md:text-2xl font-serif text-espresso-900 italic max-w-2xl leading-relaxed">
+                        "${t.quote}"
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-[1px] bg-gold-400"></span>
+                        <span class="text-xs uppercase tracking-widest text-espresso-800 font-semibold">${t.author}</span>
+                        <span class="w-8 h-[1px] bg-gold-400"></span>
+                    </div>
+                `;
+                slidesContainer.appendChild(slide);
+
+                const dot = document.createElement('button');
+                dot.setAttribute('onclick', `setTestimonial(${idx})`);
+                dot.setAttribute('aria-label', `Slide ${idx + 1}`);
+                dot.className = `t-dot w-2 h-2 rounded-full ${isFirst ? 'bg-gold-500' : 'bg-cream-300 hover:bg-gold-500'} transition-colors duration-200`;
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        async function loadSiteContent() {
+            try {
+                const response = await fetch('content.json');
+                if (!response.ok) return;
+                const data = await response.json();
+
+                // Hero
+                if (data.hero) {
+                    setText('hero-eyebrow', data.hero.eyebrow);
+                    setText('hero-heading-line1', data.hero.heading_line1);
+                    setText('hero-heading-highlight', data.hero.heading_highlight);
+                    setText('hero-heading-line2', data.hero.heading_line2);
+                    setText('hero-description', data.hero.description);
+                    setText('hero-primary-btn', data.hero.primary_button_text);
+                    setText('hero-secondary-btn', data.hero.secondary_button_text);
+                    setText('hero-stat1-value', data.hero.stat1_value);
+                    setText('hero-stat1-label', data.hero.stat1_label);
+                    setText('hero-stat2-value', data.hero.stat2_value);
+                    setText('hero-stat2-label', data.hero.stat2_label);
+                    setText('hero-stat3-value', data.hero.stat3_value);
+                    setText('hero-stat3-label', data.hero.stat3_label);
+                }
+
+                // About
+                if (data.about) {
+                    setText('about-eyebrow', data.about.eyebrow);
+                    setText('about-heading-part1', data.about.heading_part1);
+                    setText('about-heading-highlight', data.about.heading_highlight);
+                    setText('about-heading-part2', data.about.heading_part2);
+                    setText('about-paragraph1', data.about.paragraph1);
+                    setText('about-paragraph2', data.about.paragraph2);
+                    setAttr('about-image', 'src', data.about.image_url);
+                    setText('about-image-caption', data.about.image_caption);
+                    setText('about-established', data.about.established_label);
+                    setText('about-feature1-title', data.about.feature1_title);
+                    setText('about-feature1-desc', data.about.feature1_desc);
+                    setText('about-feature2-title', data.about.feature2_title);
+                    setText('about-feature2-desc', data.about.feature2_desc);
+                    setText('about-instagram', data.about.instagram_handle);
+                }
+
+                // Menu
+                renderMenuItems(data.menu);
+
+                // Testimonials
+                renderTestimonials(data.testimonials);
+
+                // Contact
+                if (data.contact) {
+                    setText('contact-eyebrow', data.contact.eyebrow);
+                    setText('contact-heading', data.contact.heading);
+                    setText('contact-description', data.contact.description);
+                    setText('contact-address', data.contact.address);
+                    setText('contact-hours1', data.contact.hours_line1);
+                    setText('contact-hours2', data.contact.hours_line2);
+                    setText('contact-email', data.contact.email);
+                    setText('contact-phone', data.contact.phone_display);
+
+                    // WhatsApp floating button
+                    if (data.contact.whatsapp_number) {
+                        const msg = encodeURIComponent(data.contact.whatsapp_message || 'Hi, I have an enquiry!');
+                        setAttr('whatsapp-float-btn', 'href', `https://wa.me/${data.contact.whatsapp_number}?text=${msg}`);
+                    }
+                }
+
+                // Footer
+                if (data.footer) {
+                    setText('footer-tagline', data.footer.tagline);
+                    if (data.footer.promise_quote) {
+                        setText('footer-promise-quote', `"${data.footer.promise_quote}"`);
+                    }
+                    setText('footer-promise-author', data.footer.promise_author);
+                    setHTML('footer-copyright', data.footer.copyright ? data.footer.copyright.replace('©', '&copy;') : null);
+                }
+
+                // Re-run reveal/filter logic now that menu items exist
+                revealElements();
+                filterMenu('all');
+            } catch (error) {
+                console.error('Could not load content.json, using default content.', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadSiteContent);
+    </script>
+</body>
+</html>
