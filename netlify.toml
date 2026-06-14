@@ -20,14 +20,3 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     X-XSS-Protection = "1; mode=block"
-
-# Ensure /admin/ correctly serves the Decap CMS panel at admin/index.html
-[[redirects]]
-  from = "/admin"
-  to = "/admin/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/admin/"
-  to = "/admin/index.html"
-  status = 200
