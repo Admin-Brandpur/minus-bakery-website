@@ -1,37 +1,3 @@
-# Netlify configuration for Minu's Bakery website
-#
-# WHAT THIS FILE DOES:
-# - Tells Netlify to run "node build.js" before every deploy.
-#   This regenerates index.html from content.json so SEO tags
-#   stay in sync with whatever was edited in the CMS (/admin).
-# - "publish = .": the whole project folder is published as-is
-#   (index.html, content.json, images, admin panel, etc.)
-
 [build]
   command = "node build.js"
   publish = "."
-
-# Security headers (also present in _headers, kept here for redundancy)
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
-    X-XSS-Protection = "1; mode=block"
-
-# Serve the Decap CMS admin panel correctly.
-# Without this, Netlify serves the main index.html for ALL paths
-# including /admin/ which swallows the CMS panel.
-[[redirects]]
-  from = "/admin"
-  to = "/admin/index.html"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/admin/"
-  to = "/admin/index.html"
-  status = 200
-  force = true
