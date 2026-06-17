@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minu's Bakery — Content Manager</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --cream: #FAF6F0;
+            --cream-dark: #F0EAE0;
+            --espresso: #2A211F;
+            --espresso-light: #4A3B38;
+            --gold: #C9A84C;
+            --gold-light: #E8D5A0;
+            --green: #2D6A4F;
+            --red: #C0392B;
+            --white: #ffffff;
+            --border: #E8DFD4;
+            --shadow: 0 2px 12px rgba(42,33,31,0.08);
+            --shadow-lg: 0 8px 32px rgba(42,33,31,0.12);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--espresso);
+            min-height: 100vh;
+        }
+
+        /* ── LOGIN SCREEN ── */
+        #login-screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--espresso);
+        }
+
+        .login-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 48px 40px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+
+        .login-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--espresso);
+            margin-bottom: 4px;
+        }
+
+        .login-logo span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .login-subtitle {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--espresso-light);
+            opacity: 0.6;
+            margin-bottom: 36px;
+        }
+
+        .login-box label {
+            display: block;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--espresso-light);
+            margin-bottom: 6px;
+        }
+
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            color: var(--espresso);
+            background: var(--cream);
+            outline: none;
+            transition: border-color 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .login-box input[type="password"]:focus {
+            border-color: var(--gold);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 13px;
+            background: var(--espresso);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-login:hover { background: var(--gold); }
+
+        #login-error {
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--red);
+            display: none;
+        }
+
+        /* ── MAIN APP ── */
+        #app { display: none; }
+
+        /* Topbar */
+        .topbar {
+            background: var(--espresso);
+            color: var(--white);
+            padding: 0 32px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .topbar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+        }
+
+        .topbar-logo span { color: var(--gold); font-style: italic; }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .topbar-right .site-link {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.2s;
+        }
+
+        .topbar-right .site-link:hover { color: var(--gold); }
+
+        #save-btn {
+            padding: 8px 20px;
+            background: var(--gold);
+            color: var(--espresso);
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        #save-btn:hover { background: #E8C46A; }
+        #save-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-logout {
+            padding: 7px 14px;
+            background: transparent;
+            color: rgba(255,255,255,0.4);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:hover { color: white; border-color: rgba(255,255,255,0.4); }
+
+        /* Layout */
+        .app-layout {
+            display: flex;
+            min-height: calc(100vh - 60px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            background: var(--white);
+            border-right: 1px solid var(--border);
+            padding: 24px 0;
+            position: sticky;
+            top: 60px;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .sidebar-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--espresso-light);
+            opacity: 0.4;
+            padding: 0 20px;
+            margin-bottom: 8px;
+            margin-top: 20px;
+        }
+
+        .sidebar-label:first-child { margin-top: 0; }
+
+        .nav-item {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            text-align: left;
+            background: none;
+            border: none;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            color: var(--espresso-light);
+            cursor: pointer;
+            transition: all 0.15s;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover { background: var(--cream); color: var(--espresso); }
+
+        .nav-item.active {
+            background: var(--cream);
+            color: var(--espresso);
+            border-left-color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* Main content */
+        .main {
+            flex: 1;
+            padding: 32px;
+            max-width: 900px;
+        }
+
+        /* Section panels */
+        .panel { display: none; }
+        .panel.active { display: block; }
+
+        .panel-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--espresso);
+            margin-bottom: 4px;
+        }
+
+        .panel-desc {
+            font-size: 13px;
+            color: var(--espresso-light);
+            opacity: 0.6;
+            margin-bottom: 28px;
+        }
+
+        /* Form cards */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gold);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .field-grid.single { grid-template-columns: 1fr; }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .field.full { grid-column: 1 / -1; }
+
+        .field label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--espresso-light);
+        }
+
+        .field input[type="text"],
+        .field input[type="url"],
+        .field input[type="email"],
+        .field textarea {
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            color: var(--espresso);
+            background: var(--cream);
+            outline: none;
+            transition: border-color 0.2s;
+            resize: vertical;
+        }
+
+        .field input:focus,
+        .field textarea:focus {
+            border-color: var(--gold);
+            background: var(--white);
+        }
+
+        .field textarea { min-height: 80px; }
+        .field textarea.tall { min-height: 120px; }
+
+        /* Menu items list */
+        .menu-list { display: flex; flex-direction: column; gap: 16px; }
+
+        .menu-item-card {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .menu-item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .menu-item-num {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+        }
+
+        .btn-remove {
+            padding: 4px 10px;
+            background: transparent;
+            color: var(--red);
+            border: 1px solid rgba(192,57,43,0.3);
+            border-radius: 6px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .btn-remove:hover { background: var(--red); color: white; }
+
+        .btn-add {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            color: var(--espresso);
+            border: 2px dashed var(--border);
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .btn-add:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* Category select */
+        .field select {
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            color: var(--espresso);
+            background: var(--cream);
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .field select:focus { border-color: var(--gold); }
+
+        /* Status toast */
+        #status-toast {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            padding: 14px 22px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: white;
+            z-index: 999;
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+            pointer-events: none;
+            max-width: 360px;
+        }
+
+        #status-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        #status-toast.success { background: var(--green); }
+        #status-toast.error { background: var(--red); }
+        #status-toast.loading { background: var(--espresso); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .field-grid { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .main { padding: 20px; }
+            .topbar { padding: 0 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── LOGIN SCREEN ── -->
+<div id="login-screen">
+    <div class="login-box">
+        <div class="login-logo">Minu's <span>Bakery</span></div>
+        <div class="login-subtitle">Content Manager</div>
+        <label for="pw-input">Password</label>
+        <input type="password" id="pw-input" placeholder="Enter admin password" autocomplete="current-password">
+        <button class="btn-login" onclick="doLogin()">Sign In</button>
+        <div id="login-error">Incorrect password. Please try again.</div>
+    </div>
+</div>
+
+<!-- ── MAIN APP ── -->
+<div id="app">
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="topbar-logo">Minu's <span>Bakery</span> &mdash; CMS</div>
+        <div class="topbar-right">
+            <a href="/" target="_blank" class="site-link">↗ View Live Site</a>
+            <button id="save-btn" onclick="saveContent()">Save &amp; Publish</button>
+            <button class="btn-logout" onclick="doLogout()">Log Out</button>
+        </div>
+    </div>
+
+    <div class="app-layout">
+
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-label">Content</div>
+            <button class="nav-item active" onclick="showPanel('seo')">🔍 SEO &amp; Meta</button>
+            <button class="nav-item" onclick="showPanel('hero')">🏠 Hero Section</button>
+            <button class="nav-item" onclick="showPanel('about')">📖 Our Story</button>
+            <button class="nav-item" onclick="showPanel('menu')">🍞 Menu Items</button>
+            <button class="nav-item" onclick="showPanel('testimonials')">💬 Testimonials</button>
+            <button class="nav-item" onclick="showPanel('contact')">📍 Contact</button>
+            <div class="sidebar-label">Site</div>
+            <button class="nav-item" onclick="showPanel('footer')">🔻 Footer</button>
+        </nav>
+
+        <!-- Main -->
+        <main class="main">
+
+            <!-- SEO Panel -->
+            <div class="panel active" id="panel-seo">
+                <div class="panel-title">SEO &amp; Meta Tags</div>
+                <div class="panel-desc">These control how your site appears in Google search results and social media previews.</div>
+                <div class="card">
+                    <div class="card-title">Search Engine (Google)</div>
+                    <div class="field-grid single">
+                        <div class="field"><label>Page Title (browser tab &amp; Google headline)</label><input type="text" id="seo.title"></div>
+                        <div class="field"><label>Meta Description (shown under title in Google)</label><textarea id="seo.description"></textarea></div>
+                        <div class="field"><label>Keywords (comma separated)</label><input type="text" id="seo.keywords"></div>
+                        <div class="field"><label>Website URL (only change if domain changes)</label><input type="url" id="seo.site_url"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Social Media Preview (WhatsApp / Facebook share)</div>
+                    <div class="field-grid single">
+                        <div class="field"><label>Share Title</label><input type="text" id="seo.og_title"></div>
+                        <div class="field"><label>Share Description</label><textarea id="seo.og_description"></textarea></div>
+                        <div class="field"><label>Twitter/X Title</label><input type="text" id="seo.twitter_title"></div>
+                        <div class="field"><label>Twitter/X Description</label><textarea id="seo.twitter_description"></textarea></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Panel -->
+            <div class="panel" id="panel-hero">
+                <div class="panel-title">Hero Section</div>
+                <div class="panel-desc">The very first thing visitors see when they land on the homepage.</div>
+                <div class="card">
+                    <div class="card-title">Heading</div>
+                    <div class="field-grid single">
+                        <div class="field"><label>Small Label Above Heading</label><input type="text" id="hero.eyebrow"></div>
+                        <div class="field"><label>Heading Line 1</label><input type="text" id="hero.heading_line1"></div>
+                        <div class="field"><label>Highlighted Word (shown in gold italic)</label><input type="text" id="hero.heading_highlight"></div>
+                        <div class="field"><label>Heading Line 2</label><input type="text" id="hero.heading_line2"></div>
+                        <div class="field"><label>Description Paragraph</label><textarea id="hero.description"></textarea></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Buttons</div>
+                    <div class="field-grid">
+                        <div class="field"><label>Primary Button Text</label><input type="text" id="hero.primary_button_text"></div>
+                        <div class="field"><label>Secondary Button Text</label><input type="text" id="hero.secondary_button_text"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Stats (3 small numbers below description)</div>
+                    <div class="field-grid">
+                        <div class="field"><label>Stat 1 Value</label><input type="text" id="hero.stat1_value"></div>
+                        <div class="field"><label>Stat 1 Label</label><input type="text" id="hero.stat1_label"></div>
+                        <div class="field"><label>Stat 2 Value</label><input type="text" id="hero.stat2_value"></div>
+                        <div class="field"><label>Stat 2 Label</label><input type="text" id="hero.stat2_label"></div>
+                        <div class="field"><label>Stat 3 Value</label><input type="text" id="hero.stat3_value"></div>
+                        <div class="field"><label>Stat 3 Label</label><input type="text" id="hero.stat3_label"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Panel -->
+            <div class="panel" id="panel-about">
+                <div class="panel-title">Our Story</div>
+                <div class="panel-desc">The "about" section telling Minu's story.</div>
+                <div class="card">
+                    <div class="card-title">Heading</div>
+                    <div class="field-grid single">
+                        <div class="field"><label>Small Label Above Heading</label><input type="text" id="about.eyebrow"></div>
+                        <div class="field"><label>Heading Part 1</label><input type="text" id="about.heading_part1"></div>
+                        <div class="field"><label>Highlighted Word (gold italic)</label><input type="text" id="about.heading_highlight"></div>
+                        <div class="field"><label>Heading Part 2</label><input type="text" id="about.heading_part2"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Story Text</div>
+                    <div class="field-grid single">
+                        <div class="field"><label>Paragraph 1</label><textarea class="tall" id="about.paragraph1"></textarea></div>
+                        <div class="field"><label>Paragraph 2</label><textarea class="tall" id="about.paragraph2"></textarea></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Photo &amp; Caption</div>
+                    <div class="field-grid single">
+                        <div class="field"><label>Photo URL (paste an image link)</label><input type="url" id="about.image_url"></div>
+                        <div class="field"><label>Photo Caption (quote overlay on image)</label><input type="text" id="about.image_caption"></div>
+                        <div class="field"><label>Established Label</label><input type="text" id="about.established_label"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Features &amp; Social</div>
+                    <div class="field-grid">
+                        <div class="field"><label>Feature 1 Title</label><input type="text" id="about.feature1_title"></div>
+                        <div class="field"><label>Feature 1 Description</label><input type="text" id="about.feature1_desc"></div>
+                        <div class="field"><label>Feature 2 Title</label><input type="text" id="about.feature2_title"></div>
+                        <div class="field"><label>Feature 2 Description</label><input type="text" id="about.feature2_desc"></div>
+                        <div class="field"><label>Instagram Handle</label><input type="text" id="about.instagram_handle"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Panel -->
+            <div class="panel" id="panel-menu">
+                <div class="panel-title">Menu Items</div>
+                <div class="panel-desc">Add, edit or remove menu items. Changes appear on the website after saving.</div>
+                <div class="menu-list" id="menu-list"></div>
+                <button class="btn-add" onclick="addMenuItem()">+ Add New Menu Item</button>
+            </div>
+
+            <!-- Testimonials Panel -->
+            <div class="panel" id="panel-testimonials">
+                <div class="panel-title">Testimonials</div>
+                <div class="panel-desc">Customer reviews shown in the carousel on the homepage.</div>
+                <div class="menu-list" id="testimonials-list"></div>
+                <button class="btn-add" onclick="addTestimonial()">+ Add New Testimonial</button>
+            </div>
+
+            <!-- Contact Panel -->
+            <div class="panel" id="panel-contact">
+                <div class="panel-title">Contact &amp; Location</div>
+                <div class="panel-desc">Address, hours, phone, email and WhatsApp settings.</div>
+                <div class="card">
+                    <div class="card-title">Section Heading</div>
+                    <div class="field-grid">
+                        <div class="field"><label>Small Label</label><input type="text" id="contact.eyebrow"></div>
+                        <div class="field"><label>Heading</label><input type="text" id="contact.heading"></div>
+                        <div class="field full"><label>Description</label><textarea id="contact.description"></textarea></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Location &amp; Hours</div>
+                    <div class="field-grid single">
+                        <div class="field"><label>Address</label><input type="text" id="contact.address"></div>
+                        <div class="field"><label>Opening Hours Line 1</label><input type="text" id="contact.hours_line1"></div>
+                        <div class="field"><label>Opening Hours Line 2</label><input type="text" id="contact.hours_line2"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Contact Details &amp; WhatsApp</div>
+                    <div class="field-grid">
+                        <div class="field"><label>Email Address</label><input type="email" id="contact.email"></div>
+                        <div class="field"><label>Phone (displayed on site)</label><input type="text" id="contact.phone_display"></div>
+                        <div class="field"><label>WhatsApp Number (with country code, digits only)</label><input type="text" id="contact.whatsapp_number"></div>
+                        <div class="field"><label>WhatsApp Pre-filled Message</label><input type="text" id="contact.whatsapp_message"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Panel -->
+            <div class="panel" id="panel-footer">
+                <div class="panel-title">Footer</div>
+                <div class="panel-desc">The bottom section of the website.</div>
+                <div class="card">
+                    <div class="card-title">Footer Content</div>
+                    <div class="field-grid single">
+                        <div class="field"><label>Tagline</label><textarea id="footer.tagline"></textarea></div>
+                        <div class="field"><label>Promise Quote</label><textarea id="footer.promise_quote"></textarea></div>
+                        <div class="field"><label>Promise Author</label><input type="text" id="footer.promise_author"></div>
+                        <div class="field"><label>Copyright Text</label><input type="text" id="footer.copyright"></div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- Status Toast -->
+<div id="status-toast"></div>
+
+<script>
+    // ── AUTH ──
+    const CORRECT_PASSWORD = 'Burdwan_123';
+    let sessionActive = false;
+    let contentData = {};
+
+    function doLogin() {
+        const pw = document.getElementById('pw-input').value;
+        if (pw === CORRECT_PASSWORD) {
+            sessionActive = true;
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('app').style.display = 'block';
+            loadContent();
+        } else {
+            document.getElementById('login-error').style.display = 'block';
+            document.getElementById('pw-input').value = '';
+            document.getElementById('pw-input').focus();
+        }
+    }
+
+    function doLogout() {
+        sessionActive = false;
+        document.getElementById('login-screen').style.display = 'flex';
+        document.getElementById('app').style.display = 'none';
+        document.getElementById('pw-input').value = '';
+    }
+
+    document.getElementById('pw-input').addEventListener('keydown', e => {
+        if (e.key === 'Enter') doLogin();
+    });
+
+    // ── NAVIGATION ──
+    function showPanel(name) {
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        document.getElementById('panel-' + name).classList.add('active');
+        event.target.classList.add('active');
+    }
+
+    // ── LOAD CONTENT ──
+    async function loadContent() {
+        showToast('Loading content...', 'loading');
+        try {
+            const res = await fetch('/content.json?t=' + Date.now());
+            contentData = await res.json();
+            populateFields(contentData);
+            renderMenuItems(contentData.menu || []);
+            renderTestimonials(contentData.testimonials || []);
+            showToast('Content loaded successfully.', 'success');
+        } catch(e) {
+            showToast('Failed to load content: ' + e.message, 'error');
+        }
+    }
+
+    function populateFields(data, prefix = '', obj = data) {
+        for (const key in obj) {
+            const fullKey = prefix ? prefix + '.' + key : key;
+            const val = obj[key];
+            if (typeof val === 'object' && !Array.isArray(val) && val !== null) {
+                populateFields(data, fullKey, val);
+            } else if (typeof val === 'string') {
+                const el = document.getElementById(fullKey);
+                if (el) el.value = val;
+            }
+        }
+    }
+
+    // ── MENU ITEMS ──
+    function renderMenuItems(items) {
+        const list = document.getElementById('menu-list');
+        list.innerHTML = '';
+        items.forEach((item, i) => {
+            list.innerHTML += `
+            <div class="menu-item-card" id="menu-item-${i}">
+                <div class="menu-item-header">
+                    <span class="menu-item-num">Item ${i + 1}</span>
+                    <button class="btn-remove" onclick="removeMenuItem(${i})">Remove</button>
+                </div>
+                <div class="field-grid">
+                    <div class="field"><label>Name</label><input type="text" id="menu.${i}.name" value="${escHtml(item.name || '')}"></div>
+                    <div class="field"><label>Price (e.g. ₹150)</label><input type="text" id="menu.${i}.price" value="${escHtml(item.price || '')}"></div>
+                    <div class="field full"><label>Description</label><textarea id="menu.${i}.description">${escHtml(item.description || '')}</textarea></div>
+                    <div class="field"><label>Category</label>
+                        <select id="menu.${i}.category">
+                            <option value="signature" ${item.category==='signature'?'selected':''}>Signature Pastry</option>
+                            <option value="sourdough" ${item.category==='sourdough'?'selected':''}>Sourdough</option>
+                            <option value="cakes" ${item.category==='cakes'?'selected':''}>Whole Cakes</option>
+                        </select>
+                    </div>
+                    <div class="field"><label>Tag (e.g. "Flaky &amp; Golden")</label><input type="text" id="menu.${i}.tag" value="${escHtml(item.tag || '')}"></div>
+                    <div class="field"><label>Badge (e.g. "Daily Special", leave empty for none)</label><input type="text" id="menu.${i}.badge" value="${escHtml(item.badge || '')}"></div>
+                    <div class="field full"><label>Photo URL</label><input type="url" id="menu.${i}.image_url" value="${escHtml(item.image_url || '')}"></div>
+                </div>
+            </div>`;
+        });
+    }
+
+    function addMenuItem() {
+        const items = collectMenuItems();
+        items.push({ name: '', price: '', description: '', category: 'signature', tag: '', badge: '', image_url: '' });
+        renderMenuItems(items);
+        document.getElementById(`menu-item-${items.length - 1}`).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function removeMenuItem(idx) {
+        const items = collectMenuItems();
+        items.splice(idx, 1);
+        renderMenuItems(items);
+    }
+
+    function collectMenuItems() {
+        const items = [];
+        document.querySelectorAll('[id^="menu."][id$=".name"]').forEach(el => {
+            const i = parseInt(el.id.split('.')[1]);
+            items[i] = {
+                name: val(`menu.${i}.name`),
+                price: val(`menu.${i}.price`),
+                description: val(`menu.${i}.description`),
+                category: val(`menu.${i}.category`),
+                tag: val(`menu.${i}.tag`),
+                badge: val(`menu.${i}.badge`),
+                image_url: val(`menu.${i}.image_url`)
+            };
+        });
+        return items;
+    }
+
+    // ── TESTIMONIALS ──
+    function renderTestimonials(items) {
+        const list = document.getElementById('testimonials-list');
+        list.innerHTML = '';
+        items.forEach((item, i) => {
+            list.innerHTML += `
+            <div class="menu-item-card" id="testimonial-item-${i}">
+                <div class="menu-item-header">
+                    <span class="menu-item-num">Testimonial ${i + 1}</span>
+                    <button class="btn-remove" onclick="removeTestimonial(${i})">Remove</button>
+                </div>
+                <div class="field-grid single">
+                    <div class="field"><label>Quote</label><textarea id="testimonial.${i}.quote">${escHtml(item.quote || '')}</textarea></div>
+                    <div class="field"><label>Author Name &amp; Title</label><input type="text" id="testimonial.${i}.author" value="${escHtml(item.author || '')}"></div>
+                </div>
+            </div>`;
+        });
+    }
+
+    function addTestimonial() {
+        const items = collectTestimonials();
+        items.push({ quote: '', author: '' });
+        renderTestimonials(items);
+    }
+
+    function removeTestimonial(idx) {
+        const items = collectTestimonials();
+        items.splice(idx, 1);
+        renderTestimonials(items);
+    }
+
+    function collectTestimonials() {
+        const items = [];
+        document.querySelectorAll('[id^="testimonial."][id$=".quote"]').forEach(el => {
+            const i = parseInt(el.id.split('.')[1]);
+            items[i] = {
+                quote: val(`testimonial.${i}.quote`),
+                author: val(`testimonial.${i}.author`)
+            };
+        });
+        return items;
+    }
+
+    // ── SAVE ──
+    async function saveContent() {
+        const btn = document.getElementById('save-btn');
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
+        showToast('Saving changes to GitHub...', 'loading');
+
+        // Build full content object from all form fields
+        const updated = JSON.parse(JSON.stringify(contentData));
+
+        // Simple fields
+        const simpleKeys = [
+            'seo.title','seo.description','seo.keywords','seo.og_title','seo.og_description',
+            'seo.twitter_title','seo.twitter_description','seo.site_url',
+            'hero.eyebrow','hero.heading_line1','hero.heading_highlight','hero.heading_line2',
+            'hero.description','hero.primary_button_text','hero.secondary_button_text',
+            'hero.stat1_value','hero.stat1_label','hero.stat2_value','hero.stat2_label',
+            'hero.stat3_value','hero.stat3_label',
+            'about.eyebrow','about.heading_part1','about.heading_highlight','about.heading_part2',
+            'about.paragraph1','about.paragraph2','about.image_url','about.image_caption',
+            'about.established_label','about.feature1_title','about.feature1_desc',
+            'about.feature2_title','about.feature2_desc','about.instagram_handle',
+            'contact.eyebrow','contact.heading','contact.description','contact.address',
+            'contact.hours_line1','contact.hours_line2','contact.email','contact.phone_display',
+            'contact.whatsapp_number','contact.whatsapp_message',
+            'footer.tagline','footer.promise_quote','footer.promise_author','footer.copyright'
+        ];
+
+        simpleKeys.forEach(key => {
+            const parts = key.split('.');
+            const section = parts[0];
+            const field = parts[1];
+            const el = document.getElementById(key);
+            if (el && updated[section]) updated[section][field] = el.value;
+        });
+
+        updated.menu = collectMenuItems();
+        updated.testimonials = collectTestimonials();
+
+        try {
+            const res = await fetch('/.netlify/functions/save-content', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ password: CORRECT_PASSWORD, content: updated })
+            });
+
+            const result = await res.json();
+            if (result.success) {
+                contentData = updated;
+                showToast('✅ Saved! Site will update in ~60 seconds.', 'success');
+            } else {
+                showToast('❌ Error: ' + result.error, 'error');
+            }
+        } catch(e) {
+            showToast('❌ Network error: ' + e.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'Save & Publish';
+        }
+    }
+
+    // ── HELPERS ──
+    function val(id) {
+        const el = document.getElementById(id);
+        return el ? el.value : '';
+    }
+
+    function escHtml(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    function showToast(msg, type) {
+        const t = document.getElementById('status-toast');
+        t.textContent = msg;
+        t.className = `show ${type}`;
+        if (type !== 'loading') {
+            setTimeout(() => { t.className = type; }, 4000);
+        }
+    }
+</script>
+</body>
+</html>
