@@ -20,3 +20,18 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     X-XSS-Protection = "1; mode=block"
+
+# Serve the Decap CMS admin panel correctly.
+# Without this, Netlify serves the main index.html for ALL paths
+# including /admin/ which swallows the CMS panel.
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/admin/"
+  to = "/admin/index.html"
+  status = 200
+  force = true
